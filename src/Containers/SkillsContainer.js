@@ -6,9 +6,9 @@ class SkillsContainer extends Component {
   
     render = () => {
     return (
-      <Fragment>
-          My container for Skills
-     </Fragment>
+      <div >
+          Sunim is kind of cool 
+     </div>
     );
   
     }

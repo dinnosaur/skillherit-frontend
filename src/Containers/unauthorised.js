@@ -36,7 +36,7 @@ class Unauthorised extends Component {
         body: JSON.stringify(this.state.user)
     }
 
-    fetch(API + "/users" + URL, configurationObject)
+    fetch(API + "/users/" + URL, configurationObject)
     .then(this.parseJson)
     .catch(err => this.setState({
         user:{ ...this.state.user
@@ -63,8 +63,8 @@ class Unauthorised extends Component {
     return (
       <Fragment>
           <Route exact path = "/">
-            {this.state.signup? <Signup handleChange= { this.handleChange} handleSubmit ={ this.handleSubmit} />
-            :<Login signup = {this.signup} handleChange= { this.handleChange} handleSubmit ={ this.handleSubmit}/>  }  
+            {this.state.signup? <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSubmit} />
+            :<Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleSubmit}/>  }  
           </Route>
      </Fragment>
     );

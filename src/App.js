@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import { Route, withRouter, Switch} from 'react-router-dom';
 import './App.css';
 import Unauthorised from "./Containers/unauthorised"
 import SkillsContainer from "./Containers/SkillsContainer"
+import Navbar from "./Components/navbar"
 
 import API from "./API"
 class App extends Component {
@@ -29,7 +30,14 @@ class App extends Component {
     // fetch(`${API}/discover`)
     // .then(res => res.json())
     // .then(data => this.setState({discoverVideos: data}))
-  }
+   }
+
+   logout = () => {
+    localStorage.removeItem("token")
+    this.setState({
+      user: false
+    })
+    }
 
 
   validate = () => {
@@ -41,9 +49,14 @@ class App extends Component {
 
   render = () => {
   return (
-    <div>
-   { this.state.user? <SkillsContainer/>:<Unauthorised login = {this.login}/>  }
-   </div>
+    <Fragment>
+   { this.state.user? 
+   <Fragment>
+   <Navbar logout = {this.logout}/>
+   <SkillsContainer/>
+   </Fragment>
+   :<Unauthorised login = {this.login}/>  }  
+   </Fragment>
   );
 
   }

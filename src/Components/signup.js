@@ -1,50 +1,69 @@
-import React, { Component, Fragment } from "react"
-import { Button, Form, Grid, Container } from 'semantic-ui-react'
+import React, { Component } from "react"
+
 
 export default class Signup extends Component {
    
   
   
     render = () => {
-        const {handleSubmit, handleChange, signup} = this.props 
+        const {handlesubmit, handlechange, signup} = this.props 
     return (
-        <Container>
-        <Grid centered>
-            <Form onSubmit={() => handleSubmit("")}>
-                <Form.Input   
-                    required 
-                    onChange={handleChange} 
-                    label="Username:"         
-                    placeholder="Username"
-                    name="username"/>
-                <Form.Input
-                    required
-                    onChange={handleChange}   
-                    label="Email:"               
-                    placeholder="Email"
-                    name="email"/>            
-                <Form.Input
-                    onChange={handleChange} 
-                    label="Motto:" 
-                    name="motto"
-                    type="text area"/>
-                <Form.Input
-                    required
-                    onChange={handleChange} 
-                    label="Password:"             
-                    placeholder="Password"
-                    name="password"
-                    type="password"/>
-                <Form.Input
-                    required
-                    onChange={handleChange} 
-                    label="Confirm Password:"               
-                    placeholder="Confirm Password"
-                    name="password_confirmation"
-                    type="password"/>
-                <Button >Signup</Button>
-             </Form>
-        </Grid>
-    </Container>)
+    <form  onSubmit={(e) =>{e.preventDefault(); handlesubmit("")}} class="uk-position-center uk-form-stacked uk-form-width-medium">
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Username</label>
+        <div class="uk-form-controls">
+            <input  onChange={handlechange}         
+                     placeholder="Username"
+                     name="username" class="uk-input" id="form-stacked-text" type="text" required />
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">E-mail</label>
+        <div class="uk-form-controls">
+            <input 
+              onChange={handlechange}                 
+              placeholder="E-mail"
+              name="email" class="uk-input" id="form-stacked-text" type="text" required/>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Password</label>
+        <div class="uk-form-controls">
+            <input 
+            onChange={handlechange}             
+            placeholder="Password"
+            name="password"
+            type="password" class="uk-input" id="form-stacked-text" required/>
+        </div>
+    </div>
+
+    <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Confirm Password</label>
+        <div class="uk-form-controls">
+            <input 
+            onChange={handlechange}         
+                            placeholder="Confirm Password"
+                            name="password_confirmation"
+                            type="password"
+            class="uk-input" id="form-stacked-text" required />
+        </div>
+    </div>
+
+    <div class="uk-margin uk-large">
+        <label class="uk-form-label" for="form-stacked-text">Motto</label>
+        <div class="uk-form-controls uk-textarea" >
+            <input class=" " id="form-stacked-text" type="textarea" placeholder="Please enter your Motto here"
+            onChange={handlechange} 
+                            name="motto"
+                            type="textarea"/>
+        </div>
+    </div>
+    <button type= "submit" class="uk-button uk-button-default">Signup</button>
+</form>
+    
+        )
     }
   }

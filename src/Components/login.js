@@ -1,33 +1,31 @@
 import React, { Component } from "react"
-import { Button, Form, Grid, Container } from 'semantic-ui-react'
+import  "../css/loginStyles.css"
 
 
 export default class Login extends Component {
    
     render = () => {
-        const {handleSubmit, handleChange, signup} = this.props 
+        
+        const {handlesubmit, handlechange, signup} = this.props 
     return (
-            <Container middle aligned>
-                <Grid centered>
-                    <Form onSubmit = {() => handleSubmit("sign-in")}>
-                        <Form.Input     
-                            onChange = {handleChange}
-                            label="Username:"       
-                            placeholder="Username"
-                            name="username"/>
-                        <Form.Input   
-                            onChange = {handleChange}
-                            label="Password:"           
-                            placeholder="Password"
-                            name="password"
-                            type="password"/>
-                        <Button>Login</Button>
-                    </Form>
-                    <Button onClick = {signup}>Signup</Button>
-                </Grid>
-             </Container>
+        <div class="uk-container uk-position-center ">
+        <form onSubmit = {(e)=>{e.preventDefault(); handlesubmit("sign-in")}}>
+            <div class="uk-flex uk-flex-center uk-vertical-align-middle">
+                <div class="uk-inline">
+                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                    <input name ="username" onChange = {handlechange} class= " login uk-input" type="text"/>
+                </div>
+            </div>
+            <div class="uk-flex uk-flex-center uk-flex-middle">
+                <div class="uk-inline">
+                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                    <input name = "password"  onChange = {handlechange} class="login uk-input" type="password"/>
+                </div>
+            </div>
+            <button type= "submit" class="uk-button uk-button-default">Login</button>
+            <span><button onClick = {signup} class="uk-button uk-button-default">Signup</button> </span>
+        </form>
+        </div>
              )
-    
-  
     }
   }
