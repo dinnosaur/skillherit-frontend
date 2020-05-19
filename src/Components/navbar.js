@@ -18,16 +18,14 @@ function Navbar(props) {
                     <div class="uk-navbar-dropdown">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
                             <li onClick = {props.logout} class="uk-active"><a href="#">Logout</a></li>
+                            <li  onClick = {props.createSkill} class="uk-active"><a href="#">Teach your ways</a></li>
                         </ul>
                     </div>
                 </li>
-            </ul>
-              
+            </ul>    
             </div>
-            
-            
-
         </nav>
+        
 
   );
 }

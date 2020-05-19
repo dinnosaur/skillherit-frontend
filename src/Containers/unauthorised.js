@@ -25,32 +25,22 @@ class Unauthorised extends Component {
      })
    }
 
-   handleSubmit = (URL) => {
-       console.log()
-    const configurationObject = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify(this.state.user)
-    }
-
-    fetch(API + "/users/" + URL, configurationObject)
-    .then(this.parseJson)
-    .catch(err => this.setState({
-        user:{ ...this.state.user
-        }
-    }))
+    handleSignUp = () => {
+        API.signUpUser(this.state.user)
+        .then(API.parseJson)
+        .then(data => this.props.login(data))
+        .catch(err => {
+            console.log(err)
+        })
     }   
 
-    parseJson = (resp) => {
-        if (resp.ok) {
-            return resp.json().then(data => this.props.login(data))
-        }
-        else {
-            throw resp.json()
-        }
+    handleLogin = () => {
+        API.logInUser(this.state.user)
+        .then(API.parseJson)
+        .then(data => this.props.login(data))
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     signup = () => {
@@ -63,8 +53,8 @@ class Unauthorised extends Component {
     return (
       <Fragment>
           <Route exact path = "/">
-            {this.state.signup? <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSubmit} />
-            :<Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleSubmit}/>  }  
+            {this.state.signup? <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSignUp} />
+            :<Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleLogin}/>  }  
           </Route>
      </Fragment>
     );

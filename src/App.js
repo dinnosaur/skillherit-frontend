@@ -1,14 +1,17 @@
 import React, {Component, Fragment} from 'react'
-import { Route, withRouter, Switch} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 import './App.css';
 import Unauthorised from "./Containers/unauthorised"
 import SkillsContainer from "./Containers/SkillsContainer"
 import Navbar from "./Components/navbar"
+import SkillFormContainer from './Containers/SkillFormContainer';
 
 import API from "./API"
+
 class App extends Component {
   state = {
-    user: false
+    user: false,
+    createSkill: false
   }
 
 
@@ -20,7 +23,6 @@ class App extends Component {
     })
      
   }
-
 
   componentDidMount() {
     if (localStorage.token) {
@@ -41,19 +43,27 @@ class App extends Component {
 
 
   validate = () => {
-    fetch(API + "validate", {headers: {AUTHORIZATION: localStorage.token}})
+      API.validation()
      .then(resp => resp.json())
      .then(data => {this.login(data);
     })
   }
+
+  createSkill = () => {
+      this.setState({
+        createSkill: !this.state.createSkill
+      })
+  }
+
 
   render = () => {
   return (
     <Fragment>
    { this.state.user? 
    <Fragment>
-   <Navbar logout = {this.logout}/>
-   <SkillsContainer/>
+   <Navbar logout = {this.logout} createSkill = {this.createSkill}/>
+   {this.state.createSkill?<SkillFormContainer createSkill = {this.createSkill}/>:
+    <SkillsContainer/> }
    </Fragment>
    :<Unauthorised login = {this.login}/>  }  
    </Fragment>

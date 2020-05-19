@@ -5,11 +5,10 @@ import  "../css/loginStyles.css"
 export default class Login extends Component {
    
     render = () => {
-        
         const {handlesubmit, handlechange, signup} = this.props 
     return (
         <div class="uk-container uk-position-center ">
-        <form onSubmit = {(e)=>{e.preventDefault(); handlesubmit("sign-in")}}>
+        <form onSubmit = {(e)=>{e.preventDefault(); handlesubmit()}}>
             <div class="uk-flex uk-flex-center uk-vertical-align-middle">
                 <div class="uk-inline">
                     <span class="uk-form-icon" uk-icon="icon: user"></span>
