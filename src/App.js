@@ -43,10 +43,12 @@ class App extends Component {
 
 
   validate = () => {
-      API.validation()
+    if (localStorage.token != "undefined")
+    {  API.validation()
      .then(resp => resp.json())
      .then(data => {this.login(data);
     })
+    }
   }
 
   createSkill = () => {

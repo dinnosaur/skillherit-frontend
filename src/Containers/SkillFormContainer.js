@@ -9,10 +9,10 @@ export default class SkillFormContainer extends Component {
         title: "",
         description: "",
         achievements: "", 
-        difficulty: "",
+        difficulty: "Easy",
         duration: {years:"0" ,months: "0" },
         advice: "",
-        topic: "Technology" ,
+        topic: "Design" ,
         methodology: ""
         
     }
