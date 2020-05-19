@@ -14,8 +14,6 @@ class App extends Component {
     createSkill: false
   }
 
-
-
    login = (data) => {
     localStorage.token = data.token 
     this.setState({
