@@ -35,6 +35,7 @@ const parseJson = (resp) => {
         throw resp.json()
     }
 }
+
 const validation = () => {
 return fetch(BASE_URL + "validate", {headers: {AUTHORIZATION: localStorage.token}})
 }
@@ -53,10 +54,16 @@ const postSkill = (skill) => {
 
     return fetch(BASE_URL + "skills", configurationObject)
 }
+
+
+const fetchAllSkills =() => {
+    return fetch(BASE_URL +"skills")
+}
 export default {
     signUpUser,
     logInUser,
     parseJson,
     validation,
-    postSkill
+    postSkill, 
+    fetchAllSkills
 }

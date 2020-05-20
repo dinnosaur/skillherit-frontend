@@ -52,10 +52,10 @@ class Unauthorised extends Component {
     render = () => {
     return (
       <Fragment>
-          <Route exact path = "/">
+         
             {this.state.signup? <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSignUp} />
             :<Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleLogin}/>  }  
-          </Route>
+          
      </Fragment>
     );
   

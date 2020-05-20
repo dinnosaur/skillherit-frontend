@@ -1,7 +1,8 @@
 import React, { useState, Fragment } from 'react';
-import { Button } from 'semantic-ui-react'
+
 
 function SkillForm(props) {
+    
   const [array,setArray] = useState([])
   const [linkNo, setLinkNo] = useState(1)
     
@@ -32,6 +33,7 @@ const renderMonths = () => {
 
     return (
  
+    <div className = "uk-container">
     <form onSubmit = {props.handleSubmit} class="uk-form-horizontal  uk-margin-large uk-position-large uk-width-1-2 ">
         
     <div class="uk-margin ">
@@ -122,9 +124,9 @@ const renderMonths = () => {
             </select>
         </div>
     </div>
-    <button  type= "submit" class="uk-button uk-button-default">Post Skill</button>
+    <button   type= "submit" class="uk-button uk-button-default">Post Skill</button>
 </form>
-
+</div>
   );
 }
 
