@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 
 
 function SkillForm(props) {
-    
+
   const [array,setArray] = useState([])
   const [linkNo, setLinkNo] = useState(1)
     
@@ -93,7 +93,10 @@ const renderMonths = () => {
             <span><select onChange ={props.handleDuration} name = "years" placeholder = "Years" class="uk-select" id="form-horizontal-select">
                 <option>0 years</option>
                 <option>1 year</option>
-                <option>2 years</option>
+                <option>3 years</option>
+                <option>4 years</option>
+                <option>5 years</option>
+                <option>6 years</option>
             </select></span>
             <select onChange ={props.handleDuration} name = "months" class="uk-select" id="form-horizontal-select">
                 {renderMonths()}

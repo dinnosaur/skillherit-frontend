@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react"
-import API from "../API"
 function SkillList(props)  {
 
     
@@ -12,7 +11,7 @@ function SkillList(props)  {
                    <p>{skill.description}</p>
                </div>
                <div class="uk-card-media-bottom ">
-                   <img   src="http://www.simpleimageresizer.com/_uploads/photos/66091a6a/pencils-1280558_1920_6_373x205.jpg" alt=""/>
+                <img   src="http://www.simpleimageresizer.com/_uploads/photos/66091a6a/pencils-1280558_1920_6_373x205.jpg" alt=""/>
                </div>
            </div>
        
