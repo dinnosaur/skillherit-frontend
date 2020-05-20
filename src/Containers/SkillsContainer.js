@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"
 import SkillList from "../Components/skillsList"
 import SkillFilter from "../Components/skillFilter"
+import ShowSkill from "../Components/showSkill"
 import Uikit from "uikit";
 
 import API from "../API"
@@ -8,7 +9,8 @@ import API from "../API"
 class SkillsContainer extends Component {
    state = {
      skills: [],
-     filterSkills: []
+     filterSkills: [],
+     skill: false 
    }
   
     componentDidMount() {
@@ -43,15 +45,25 @@ class SkillsContainer extends Component {
         filterSkills: lengthTopics
       })
     }
+
+    showSkill = (skill) => {
+
+      this.setState({
+        skill:skill 
+      })
+    }
   
     render = () => {
     return (
-      <Fragment>
-      <div class= "uk-container">
-          <SkillFilter showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/>
-          <SkillList skills = {this.state.filterSkills}/>    
+      
+      <div class= "uk-container ">
+          {!this.state.skill ? 
+          <>
+          <SkillFilter showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/> 
+           <SkillList renderSkill ={this.showSkill} skills = {this.state.filterSkills}/></>:   
+           <ShowSkill skill ={this.state.skill}/>}
       </div>
-      </Fragment>
+      
     );
   
     }

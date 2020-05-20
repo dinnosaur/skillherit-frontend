@@ -15,7 +15,8 @@ import API from "./API"
 class App extends Component {
   state = {
     user: false,
-    createSkill: false
+    createSkill: false,
+    editSkill: false
   }
 
    login = (data) => {
@@ -61,7 +62,8 @@ class App extends Component {
     <Fragment>
    { this.state.user? 
    <Fragment>
-   <Navbar logout = {this.logout} createSkill = {this.createSkill}/>
+   <Navbar showAll = {this.showAll} logout = {this.logout} createSkill = {this.createSkill}/>
+   
    {this.state.createSkill?<SkillFormContainer createSkill = {this.createSkill}/>:
     <SkillsContainer/> }
    </Fragment>

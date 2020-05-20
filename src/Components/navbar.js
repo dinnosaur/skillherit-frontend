@@ -7,7 +7,7 @@ function Navbar(props) {
         <nav class=" uk-navbar-container  " data-uk-navbar >
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="#">SkillHerit</a></li>
+                    <li onClick ={props.showList} class="uk-active"><a href="#">SkillHerit</a></li>
                 </ul>
             </div>
             
