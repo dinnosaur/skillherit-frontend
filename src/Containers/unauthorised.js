@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
-import { Route} from 'react-router-dom';
-import Login from "../Components/login"
-import Signup from "../Components/signup"
+import { Route,Switch} from 'react-router-dom';
+import Login from "../Components/unauthorised/login"
+import Signup from "../Components/unauthorised/signup"
 
 import API from "../API"
 
@@ -52,10 +52,10 @@ class Unauthorised extends Component {
     render = () => {
     return (
       <Fragment>
-         
-            {this.state.signup? <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSignUp} />
-            :<Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleLogin}/>  }  
-          
+         <Switch>
+            <Route exact path = "/signup" render ={() => <Signup handlechange= { this.handleChange} handlesubmit ={ this.handleSignUp} />}/>
+            <Route eaxct path ="/" render ={() => <Login signup = {this.signup} handlechange= { this.handleChange} handlesubmit ={ this.handleLogin}/> }/>
+        </Switch>
      </Fragment>
     );
   

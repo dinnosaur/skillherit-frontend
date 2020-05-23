@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import {Link} from "react-router-dom"
 
 
 export default class Signup extends Component {
@@ -6,7 +7,7 @@ export default class Signup extends Component {
   
   
     render = () => {
-        const {handlesubmit, handlechange, signup} = this.props 
+        const {handlesubmit, handlechange} = this.props 
     return (
     <form  onSubmit={(e) =>{e.preventDefault(); handlesubmit()}} class="uk-position-center uk-form-stacked uk-form-medium ">
 
@@ -61,7 +62,7 @@ export default class Signup extends Component {
                             type=""/>
         </div>
     </div>
-    <button type= "submit" class="uk-button uk-button-default">Signup</button>
+    <Link to="/"><button type= "submit" class="uk-button uk-button-default">Signup</button></Link>
 </form>
     
         )

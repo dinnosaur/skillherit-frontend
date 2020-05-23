@@ -1,27 +1,27 @@
 import React, { Component, Fragment } from "react"
-import SkillList from "../Components/skillsList"
-import SkillFilter from "../Components/skillFilter"
-import ShowSkill from "../Components/showSkill"
-import Uikit from "uikit";
+import SkillList from "../../Components/skillsList"
+import SkillFilter from "../../Components/skillscontainer/skillFilter"
+import ShowSkill from "../../Components/skillscontainer/showSkill"
 
-import API from "../API"
+
+import API from "../../API.js"
 
 class SkillsContainer extends Component {
    state = {
      skills: [],
-     filterSkills: [],
-     skill: false 
+     filterSkills: []
    }
   
     componentDidMount() {
       API.fetchAllSkills()
       .then(resp => resp.json())
-      .then(data =>this.setState({
+      .then(data =>
+        this.setState({
         skills: data,
         filterSkills: data
-      }))
+      }) )
     }
-  
+
 
     handleTopic = ({target: {innerText}}) => {
       const topicSkills = this.state.skills.filter(skill => skill.topics[0].name === innerText)
@@ -46,22 +46,12 @@ class SkillsContainer extends Component {
       })
     }
 
-    showSkill = (skill) => {
-
-      this.setState({
-        skill:skill 
-      })
-    }
-  
     render = () => {
     return (
       
       <div class= "uk-container ">
-          {!this.state.skill ? 
-          <>
-          <SkillFilter showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/> 
-           <SkillList renderSkill ={this.showSkill} skills = {this.state.filterSkills}/></>:   
-           <ShowSkill skill ={this.state.skill}/>}
+           <SkillFilter showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/>
+           <SkillList   skills = {this.state.filterSkills}/>  
       </div>
       
     );

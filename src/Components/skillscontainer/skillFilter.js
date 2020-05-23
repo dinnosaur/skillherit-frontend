@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react"
-import API from "../API"
+import API from "../../API"
 function SkillFilter({handleTopic,handleLength, showAll })  {
 
     

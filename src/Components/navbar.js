@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "../css/navbarStyles.css"
+import { Link } from "react-router-dom"
 
 function Navbar(props) {
   return (
@@ -7,7 +8,7 @@ function Navbar(props) {
         <nav class=" uk-navbar-container  " data-uk-navbar >
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li onClick ={props.showList} class="uk-active"><a href="#">SkillHerit</a></li>
+                    <li  class="uk-active"><Link to="/skills">SkillHerit</Link></li>
                 </ul>
             </div>
             
@@ -17,8 +18,9 @@ function Navbar(props) {
                 <a uk-icon="icon: menu; ratio:2" href="#"></a>
                     <div class="uk-navbar-dropdown ">
                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li onClick = {props.logout} class="uk-nav"><a href="#">Logout</a></li>
-                            <li  onClick = {props.createSkill} class="uk-nav"><a href="#">Teach your ways</a></li>
+                            <li onClick={props.logout} class="uk-nav"><Link to= "/"> Logout </Link></li>
+                            <li  class="uk-nav"><Link to="/new" >Teach your ways</Link></li>
+                            <li   class="uk-nav"><Link to="/journey"> Journey </Link></li>
                         </ul>
                     </div>
                 </li>

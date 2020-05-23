@@ -1,11 +1,14 @@
 import React, { Component, Fragment } from "react"
+import { Redirect, withRouter } from "react-router-dom";
+
 function SkillList(props)  {
 
     
     const renderSkills = () => {
-       return props.skills.map(skill =>{return ( 
-       <div  class = "uk-margin-small">
-           <div onClick = {() => props.renderSkill(skill)} class="uk-card uk-card-medium uk-card-hover  uk-card-default ">
+       return props.skills.map(skill =>{ const id = skill.id;
+       return ( 
+       <div key = {skill.id}   class = "uk-margin-small">
+           <div  onClick = {() => props.history.push(`/skills/${skill.id}`)} class="uk-card uk-card-medium uk-card-hover  uk-card-default ">
                <div class="uk-card-body ">
                <h3 class="uk-card-title">{skill.title}</h3>
                    <p>{skill.description}</p>
@@ -27,5 +30,5 @@ function SkillList(props)  {
        
   }
 
-  export default SkillList
+  export default withRouter(SkillList)
   

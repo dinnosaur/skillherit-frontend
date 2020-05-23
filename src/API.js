@@ -59,11 +59,17 @@ const postSkill = (skill) => {
 const fetchAllSkills =() => {
     return fetch(BASE_URL +"skills")
 }
+
+
+const fetchSkill = (id) => {
+    return fetch(BASE_URL + "skills" + `/${id}` )
+}
 export default {
     signUpUser,
     logInUser,
     parseJson,
     validation,
     postSkill, 
-    fetchAllSkills
+    fetchAllSkills,
+    fetchSkill
 }
