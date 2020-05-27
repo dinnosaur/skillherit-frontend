@@ -62,7 +62,7 @@ export default class Signup extends Component {
                             type=""/>
         </div>
     </div>
-    <Link to="/"><button type= "submit" class="uk-button uk-button-default">Signup</button></Link>
+    <button type= "submit" class="uk-button uk-button-default">Signup</button>
 </form>
     
         )

@@ -64,7 +64,7 @@ class Authorised extends Component {
          <Navbar  logout = {this.props.logout}/>
           <Switch> 
             <Route exact path="/skills" render={() => <SkillsContainer user ={this.props.user}/>} />
-            <Route exact path="/new" render= {() => <SkillFormContainer/>}/>
+            <Route exact path="/new" render= {(routerProps) => <SkillFormContainer {...routerProps}/>}/>
             <Route exact path="/skills/:id" render= {(routerProps) => <ShowSkill {...routerProps} track={this.state.track} addToTrack={this.addToTrack} user ={this.props.user}/>}/>
             <Route exact path="/track" render={() => <TrackContainer duration={this.state.duration} getTrack={this.getTrack} activeTrack={this.activeTrack} track={this.state.track}/>}/>
           </Switch>

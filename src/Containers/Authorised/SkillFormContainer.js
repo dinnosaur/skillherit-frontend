@@ -54,7 +54,7 @@ export default class SkillFormContainer extends Component {
         e.preventDefault()
         API.postSkill(this.state)
         .then(API.parseJson)
-        .then(data => this.props.createSkill())
+        .then(data => this.props.history.push(`/skills`))
         .catch(err => console.log(err))
     }
 
