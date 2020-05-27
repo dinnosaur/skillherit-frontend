@@ -19,6 +19,9 @@ function ShowSkill(props)  {
               return skill.links.map(link => {return <li><a  class="uk-link-muted" href={link.url} target="_blank">{link.url}</a></li> })
           }
         }
+
+        
+
         return (
             <Fragment>
                 <div className ="uk-margin-large-top uk-position-top-center">
@@ -40,8 +43,12 @@ function ShowSkill(props)  {
                 <ul class="uk-list ">
                     {createLinks()}
                 </ul>
-                {props.user.id === skill.user_id ? <button>Edit Post</button>:null}
+                {props.user.id === skill.user_id ? 
+                <button>Edit Post</button>:null}
                 
+                {!props.track?
+                <button onClick={()=> props.addToTrack(skill.id)}>  Add to track</button>
+                :null}    
             </Fragment>
             );
       

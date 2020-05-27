@@ -58,10 +58,9 @@ export default class SkillFormContainer extends Component {
         .catch(err => console.log(err))
     }
 
-    render = () => {
-      
-    return (
-        <SkillForm handleSubmit = {this.handleSubmit} handleDuration = {this.handleDuration} handleChange = {this.handleChange} handleLinks = {this.handleLinks}/>
-         )
+    render = () => {  
+        return (
+            <SkillForm handleSubmit = {this.handleSubmit} handleDuration = {this.handleDuration} handleChange = {this.handleChange} handleLinks = {this.handleLinks}/>
+        )
     }
   }

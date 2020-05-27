@@ -9,6 +9,7 @@ function Navbar(props) {
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
                     <li  class="uk-active"><Link to="/skills">SkillHerit</Link></li>
+                    <li class="uk-inactice"><Link to="/track">My Track</Link></li>
                 </ul>
             </div>
             

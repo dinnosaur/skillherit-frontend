@@ -71,7 +71,7 @@ function SkillForm(props) {
             <div class="uk-form-controls">
                 <textarea onChange ={props.handleChange} name="achievements" class="uk-textarea" rows="3" placeholder="Textarea"></textarea>
             </div>
-        </div>
+    </div>*/}
 
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Links</label>
@@ -81,7 +81,7 @@ function SkillForm(props) {
                 <span><button class="uk-button uk-button-default" onClick = { newInput}> Add Link</button></span>
 
             </div>  
-        </div> */}
+        </div> 
         
         
         <div class="uk-margin">

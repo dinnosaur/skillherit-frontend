@@ -17,13 +17,8 @@ class App extends Component {
       page: "home",
     }
 
-  
-  
-  
-
    login = (data) => {
     localStorage.token = data.token 
-   console.log(data.id)
     this.setState({
       user: data
     },() =>  this.props.history.push(`/skills`))
@@ -47,7 +42,10 @@ class App extends Component {
     if (localStorage.token != "undefined")
     {  API.validation()
      .then(resp => resp.json())
-     .then(data => {this.login(data);
+     .then(data => {this.setState({
+       user:data
+     });
+     localStorage.token = data.token 
     })
     }
   }
@@ -98,7 +96,7 @@ class App extends Component {
    render = ()  => {
   return (
     <>
-    {this.state.user? <Authorised user = {this.state.user} logout ={this.logout}/>:<Unauthorised login ={this.login}/>}
+    {this.state.user? <Authorised user={this.state.user} logout={this.logout}/>:<Unauthorised login ={this.login}/>}
     </>
   );
  }
@@ -107,15 +105,3 @@ class App extends Component {
 
 export default withRouter(App);
 
-
-// render() {
-//   return (
-//     <Navbar />
-//     <Switch>
-//       <Route to="/" render={() => <HomePage />} />
-//       <Route to="/new-post" render={() => <HomePage />} />
-//       <Route to="/profile" render={() => <HomePage />} />
-//       <Route to="/post/:id" render={() => <PostDetails />} />
-//     </Switch>
-//   )
-// }

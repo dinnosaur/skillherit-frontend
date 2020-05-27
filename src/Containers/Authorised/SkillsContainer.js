@@ -40,7 +40,7 @@ class SkillsContainer extends Component {
     handleLength = ({target: {innerText}}) => {
      const state = innerText === "Short"? true :false 
      const lengthTopics = this.state.skills.filter(skill => skill.short_term === state)
-     console.log(lengthTopics)
+     
       this.setState({
         filterSkills: lengthTopics
       })
