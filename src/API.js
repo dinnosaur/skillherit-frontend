@@ -54,7 +54,7 @@ const fetchAllSkills =() => {
 }
 
 const fetchSkill = (id) => {
-    return fetch(BASE_URL + "skills" + `/${id}` )
+    return fetch(BASE_URL + "skills/" + `${id}` )
 }
 
 
@@ -107,7 +107,7 @@ const updateTrack = (trackid) => {
         },
         body: JSON.stringify({id:trackid})
     }
-    return fetch(BASE_URL + "tracks" + `/${trackid}`, configurationObject)
+    return fetch(BASE_URL + "tracks/" + `${trackid}`, configurationObject)
 }
 
 export default {

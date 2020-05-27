@@ -5,7 +5,7 @@ import SkillFormContainer from "./Authorised/SkillFormContainer";
 import ShowSkill from "../Components/skillscontainer/showSkill";
 import TrackContainer from "./Authorised/TrackContainer"
 import moment from 'moment';
-import formate from "moment-duration-format"
+import  "moment-duration-format"
 import Navbar from "../Components/navbar"
 import "../css/loginStyles.css"
 
