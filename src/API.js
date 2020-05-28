@@ -1,5 +1,6 @@
 const BASE_URL = "http://localhost:3000/"
 
+//Unauthorized fetches 
 const signUpUser = (user) => {
     const configurationObject = {
         method: "POST",
@@ -110,6 +111,14 @@ const updateTrack = (trackid) => {
     return fetch(BASE_URL + "tracks/" + `${trackid}`, configurationObject)
 }
 
+const fetchCompletedTracks = () => {
+    return fetch(BASE_URL + "tracks/user-tracks",{headers: {AUTHORIZATION: localStorage.token}})
+}
+
+const fetchSession = (sessionId) => {
+    return fetch(BASE_URL + `sessions/${sessionId}`, {headers: {AUTHORIZATION: localStorage.token}})
+}
+
 export default {
     signUpUser,
     logInUser,
@@ -121,5 +130,7 @@ export default {
     createTrack,
     fetchTrack,
     postSession,
-    updateTrack
+    updateTrack,
+    fetchCompletedTracks,
+    fetchSession
 }

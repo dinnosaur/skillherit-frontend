@@ -1,30 +1,32 @@
-import React, { Component, Fragment } from "react"
-import API from "../../API"
-function SkillFilter({handleTopic,handleLength, showAll })  {
+import React, {useState} from "react"
+import { Link } from "react-router-dom"
 
+
+function SkillFilter({handleTopic,handleLength, showAll, active })  {
+   
     
         return (
-            <div class="uk-width-1-4@s uk-margin-left uk-position-center-left  uk-width-1-6@m data-uk-sticky">
-            <ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
-                <li class="uk-active"><p>Active</p></li>
+            <div class="uk-position-fixed uk-width-1-6 uk-margin-left uk-margin-large-right uk-position-center-left  uk-width-1-6" >
+            <ul class=" uk-nav-default uk-nav-parent-icon " data-uk-nav data-uk-sticky="offset:35">
+                <li class="uk-active"><p>{active}</p></li>
                 <li class="uk-parent">
-                    <a >Length</a>
+                    <a>Length</a>
                     <ul class="uk-nav-sub">
-                        <li><a onClick ={handleLength} >Short</a></li>
-                        <li><a onClick ={handleLength} >Long</a></li>
+                        <li><Link onClick ={handleLength}>Short</Link></li>
+                        <li><Link onClick ={handleLength}>Long</Link></li>
                     </ul>
                 </li>
                 <li class="uk-parent">
                     <a href="#">Topics</a>
                     <ul class="uk-nav-sub">
-                    <li><a onClick = {handleTopic} >Design</a></li>
-                    <li><a onClick = {handleTopic} >Photography</a></li>
-                    <li><a onClick = {handleTopic} >Development</a></li>
-                    <li><a onClick = {handleTopic} >Marketing</a></li>
-                    <li><a onClick = {handleTopic} >Health & Fitness</a></li>
-                    <li><a onClick = {handleTopic} >Music</a></li>
-                    <li><a onClick = {handleTopic} >Science</a></li>
-                    <li><a onClick = {handleTopic} >Lifestyle</a></li>
+                    <li><Link onClick ={handleTopic}>Design</Link></li>
+                    <li><Link onClick ={handleTopic}>Photography</Link></li>
+                    <li><Link onClick ={handleTopic}>Development</Link></li>
+                    <li><Link onClick ={handleTopic}>Marketing</Link></li>
+                    <li><Link onClick ={handleTopic}>Health & Fitness</Link></li>
+                    <li><Link onClick ={handleTopic}>Music</Link></li>
+                    <li><Link onClick ={handleTopic}>Science</Link></li>
+                    <li><Link onClick ={handleTopic}>Lifestyle</Link></li>
                     </ul>
                 </li>
                 <li >

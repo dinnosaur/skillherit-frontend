@@ -12,8 +12,8 @@ export default class Login extends Component {
         <form onSubmit = {(e)=>{e.preventDefault(); handlesubmit()}}>
             <div class="uk-flex uk-flex-center uk-vertical-align-middle">
                 <div class="uk-inline">
-                    <span class="uk-form-icon" uk-icon="icon: user"></span>
-                    <input name ="username" onChange = {handlechange} class= " login uk-input" type="text"/>
+                    <span className="uk-form-icon" uk-icon="icon: user"></span>
+                    <input name ="username" onChange = {handlechange} className= " login uk-input" type="text"/>
                 </div>
             </div>
             <div class="uk-flex uk-flex-center uk-flex-middle">

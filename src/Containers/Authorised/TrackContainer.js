@@ -95,37 +95,40 @@ trackCompleted = () => {
     .catch(error => console.log(error))
 }
 
-
-
-//   time = () => {
-//     let today = new Date();
-//     let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-//     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-//     let dateTime = date+' '+time;
-//     return dateTime
-//   }[;]
-
-
     render = () => {
 
     const {track,duration} = this.props
     return (
-      <div class= "uk-container ">
+      <div class= "uk-container uk-margin uk-padding-large uk-box-shadow-small ">
           {track ?
-           <>
-            <h3> Current Track: {track.skill.title }</h3> 
+           <><div className ="uk-margin-large-top uk-position-top-center uk-padding">
+                    <h3 class ="uk-heading-divider"> Current Track: {track.skill.title }</h3> 
+            </div> 
                 {!this.state.session?
-                <>
-                    <button onClick= {() => this.sessionStart("start")}>Start Learning</button> 
-                    <h4>Time spend learning this track: {duration} </h4>
-                    <button onClick={this.trackCompleted}>Finish Track</button> 
+                <>  
+                    <div className ="uk-margin-large-top">
+                        <h4  >Time spend learning this track: {duration} </h4>
+                    </div>
+                        <hr class="uk-divider-icon"/>
+                    <br></br>
+                    <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
+                        <div>
+                            <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick= {() => this.sessionStart("start")}>Start Learning</button> 
+                        </div>
+                        <div>
+                            <button  class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick={this.trackCompleted}>Finish Track</button> 
+                        </div>
+                     </div>
+                    
+                    
                 </>
                 : 
                 null}
                 {this.state.session? <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart}/> : null }
            </>
            :
-           <h4>browse through skills and add to track </h4>}  
+           <h2 class="uk-position-relative uk-position-center">Browse through skills to start learning </h2>
+           }  
       </div>
       
       
