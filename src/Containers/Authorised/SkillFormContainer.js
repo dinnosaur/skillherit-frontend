@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import SkillForm from '../Components/skillForm';
-import API from "../API"
+import SkillForm from '../../Components/skillsformcontainer/skillForm';
+import API from "../../API"
 
 export default class SkillFormContainer extends Component {
 
@@ -54,14 +54,13 @@ export default class SkillFormContainer extends Component {
         e.preventDefault()
         API.postSkill(this.state)
         .then(API.parseJson)
-        .then(data => this.props.createSkill())
+        .then(data => this.props.history.push(`/skills`))
         .catch(err => console.log(err))
     }
 
-    render = () => {
-      
-    return (
-        <SkillForm handleSubmit = {this.handleSubmit} handleDuration = {this.handleDuration} handleChange = {this.handleChange} handleLinks = {this.handleLinks}/>
-         )
+    render = () => {  
+        return (
+            <SkillForm handleSubmit = {this.handleSubmit} handleDuration = {this.handleDuration} handleChange = {this.handleChange} handleLinks = {this.handleLinks}/>
+        )
     }
   }

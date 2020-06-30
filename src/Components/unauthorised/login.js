@@ -1,11 +1,12 @@
 import React, { Component } from "react"
-import  "../css/loginStyles.css"
+import { Link } from "react-router-dom"
+
 
 
 export default class Login extends Component {
    
     render = () => {
-        const {handlesubmit, handlechange, signup} = this.props 
+        const {handlesubmit, handlechange} = this.props 
     return (
         <div class="uk-container uk-position-center ">
         <form onSubmit = {(e)=>{e.preventDefault(); handlesubmit()}}>
@@ -21,8 +22,8 @@ export default class Login extends Component {
                     <input name = "password"  onChange = {handlechange} class="login uk-input" type="password"/>
                 </div>
             </div>
-            <button type= "submit" class="uk-button uk-button-default">Login</button>
-            <span><button onClick = {signup} class="uk-button uk-button-default">Signup</button> </span>
+            <button onClick = {handlesubmit} type= "submit" class="uk-button uk-button-default">Login</button>
+            <span><Link to="/signup"><button class="uk-button uk-button-default">Signup</button></Link> </span>
         </form>
         </div>
              )

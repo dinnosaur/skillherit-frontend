@@ -27,14 +27,8 @@ const logInUser = (user) => {
     return fetch(BASE_URL + "/users/sign-in", configurationObject)
 }
 
-const parseJson = (resp) => {
-    if (resp.ok) {
-        return resp.json()
-    }
-    else {
-        throw resp.json()
-    }
-}
+
+
 const validation = () => {
 return fetch(BASE_URL + "validate", {headers: {AUTHORIZATION: localStorage.token}})
 }
@@ -53,10 +47,79 @@ const postSkill = (skill) => {
 
     return fetch(BASE_URL + "skills", configurationObject)
 }
+
+//Skillls
+const fetchAllSkills =() => {
+    return fetch(BASE_URL +"skills")
+}
+
+const fetchSkill = (id) => {
+    return fetch(BASE_URL + "skills/" + `${id}` )
+}
+
+
+//Error handling
+const parseJson = (resp) => {
+    if (resp.ok) {
+        return resp.json()
+    }
+    else {
+        throw resp.json()
+    }
+}
+
+//Track and session 
+const createTrack = (data) => {
+    const configurationObject = {
+        method: "POST",
+        headers: {
+            AUTHORIZATION: localStorage.token,
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    return fetch(BASE_URL +"tracks", configurationObject )
+}
+
+const fetchTrack = () => {
+    return fetch(BASE_URL + "tracks/user-track", {headers: {AUTHORIZATION: localStorage.token}})
+}
+
+const postSession = (data) => {
+    const configurationObject = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(data)
+    }
+    return fetch(BASE_URL + "sessions", configurationObject)
+}
+
+const updateTrack = (trackid) => {
+    const configurationObject = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({id:trackid})
+    }
+    return fetch(BASE_URL + "tracks/" + `${trackid}`, configurationObject)
+}
+
 export default {
     signUpUser,
     logInUser,
     parseJson,
     validation,
-    postSkill
+    postSkill, 
+    fetchAllSkills,
+    fetchSkill,
+    createTrack,
+    fetchTrack,
+    postSession,
+    updateTrack
 }

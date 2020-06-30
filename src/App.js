@@ -1,35 +1,33 @@
+
 import React, {Component, Fragment} from 'react'
-import { Route, Switch} from 'react-router-dom';
-import './App.css';
+import { Route, Redirect, withRouter} from 'react-router-dom';
 import Unauthorised from "./Containers/unauthorised"
-import SkillsContainer from "./Containers/SkillsContainer"
-import Navbar from "./Components/navbar"
-import SkillFormContainer from './Containers/SkillFormContainer';
+import Authorised from "./Containers/authorised"
+
+
+
 
 import API from "./API"
 
 class App extends Component {
   state = {
-    user: false,
-    createSkill: false
-  }
+      user: false,
+      createSkill: false,
+      journey: false,
+      page: "home",
+    }
 
    login = (data) => {
     localStorage.token = data.token 
     this.setState({
       user: data
-    })
-     
+    },() =>  this.props.history.push(`/skills`))
   }
 
   componentDidMount() {
     if (localStorage.token) {
      this.validate()
     }   
-    
-    // fetch(`${API}/discover`)
-    // .then(res => res.json())
-    // .then(data => this.setState({discoverVideos: data}))
    }
 
    logout = () => {
@@ -44,7 +42,10 @@ class App extends Component {
     if (localStorage.token != "undefined")
     {  API.validation()
      .then(resp => resp.json())
-     .then(data => {this.login(data);
+     .then(data => {this.setState({
+       user:data
+     });
+     localStorage.token = data.token 
     })
     }
   }
@@ -55,21 +56,52 @@ class App extends Component {
       })
   }
 
+  
 
-  render = () => {
-  return (
-    <Fragment>
-   { this.state.user? 
-   <Fragment>
-   <Navbar logout = {this.logout} createSkill = {this.createSkill}/>
-   {this.state.createSkill?<SkillFormContainer createSkill = {this.createSkill}/>:
-    <SkillsContainer/> }
-   </Fragment>
-   :<Unauthorised login = {this.login}/>  }  
-   </Fragment>
-  );
-
+  navigateTo = (pageName) => {
+    this.setState({ page: pageName })
   }
+
+//   render = () => {
+//     // switch(this.state.page) {
+//     //   case "home":
+//     //     return <HomePage />
+//     //   case "profile":
+//     //     return <ProfilePage />
+//     //   case "new-post":
+//     //     return <PostFormPage />
+//     // 
+//     return (
+//       <Fragment>
+//         {
+//           this.state.user
+//           // ? <Authorised logout={this.logout} />
+//           ? <Fragment>
+//             <Navbar   logout = {this.logout} createSkill = {this.createSkill}/>
+//             {
+//               this.state.createSkill
+//               ? <SkillFormContainer  createSkill = {this.createSkill}/>
+//               : <SkillsContainer user = {this.state.user} /> 
+//             }
+//           </Fragment>
+//           : <Unauthorised login = {this.login} />  
+//         }  
+//       </Fragment>
+
+//     );
+
+//   }
+// }
+
+   render = ()  => {
+  return (
+    <>
+    {this.state.user? <Authorised user={this.state.user} logout={this.logout}/>:<Unauthorised login ={this.login}/>}
+    </>
+  );
+ }
+
 }
 
-export default App;
+export default withRouter(App);
+
