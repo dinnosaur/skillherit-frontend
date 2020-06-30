@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react"
+import React, { Component } from "react"
 import Session from "../../Components/TrackContainer/session"
 import moment from 'moment';
 
@@ -13,19 +13,20 @@ class TrackContainer extends Component {
       sessionForm: {
         links: {},
       },
-      content: ""
+      content: "",
+
   }
 
-  sessionStart = (state) => { 
-      this.timeSetter(state)
-      this.setState({
-          session: !this.state.session
-      })
-    
+  sessionStart = (state, distractionTime) => { 
+      console.log(distractionTime)
+    this.timeSetter(state, distractionTime)
+        this.setState({
+            session: !this.state.session
+        })   
   }
 
 
-  timeSetter = (state) => {
+  timeSetter = (state, distractionTime) => {
     switch(state) {
     case "start":
         console.log("start")
@@ -37,7 +38,7 @@ class TrackContainer extends Component {
         console.log("end")
         this.setState({
             endTime: moment()
-        },() => this.calculateTimeDifference())
+        },() => this.calculateTimeDifference(distractionTime))
     break;
     default: 
      console.log("nothing")
@@ -45,16 +46,16 @@ class TrackContainer extends Component {
     
   }
 
-  calculateTimeDifference = () => {
+  calculateTimeDifference = (distractionTime) => {
+    debugger 
     const difference = moment.duration(this.state.endTime.diff(this.state.startTime))
+    const distractionDuration = moment.duration(distractionTime).asHours()
     const duration = difference.asHours()
-    console.log(duration)
     const date = moment().format("YYYY-MM-DD")
-    this.submitSession(duration, date)
-
+    this.submitSession(duration, date, distractionDuration)
   }
 
-  submitSession = (duration, date) => {
+  submitSession = (duration, date, distractionDuration) => {
     const data = {
         session: {
             track_id: this.props.track.id,
@@ -64,7 +65,8 @@ class TrackContainer extends Component {
             content: this.state.content,
         },
         links: this.state.sessionForm.links,
-        time: duration
+        time: duration,
+        distraction: distractionDuration
     }
     API.postSession(data)
     .then(API.parseJson)
@@ -102,32 +104,30 @@ trackCompleted = () => {
       <div class= "uk-container uk-margin uk-padding-large uk-box-shadow-small ">
           {track ?
            <><div className ="uk-margin-large-top uk-position-top-center uk-padding">
-                    <h3 class ="uk-heading-divider"> Current Track: {track.skill.title }</h3> 
+                    <h3 class ="uk-heading-divider uk-text-light"> Current Track: {track.skill.title }</h3> 
             </div> 
                 {!this.state.session?
                 <>  
                     <div className ="uk-margin-large-top">
-                        <h4  >Time spend learning this track: {duration} </h4>
+                        <h4 class="uk-text-lighter" >Time spend learning this track: {duration} </h4>
                     </div>
                         <hr class="uk-divider-icon"/>
                     <br></br>
                     <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
                         <div>
-                            <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick= {() => this.sessionStart("start")}>Start Learning</button> 
+                            <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick= {() => this.sessionStart("start", 0)}>Start Learning</button> 
                         </div>
                         <div>
                             <button  class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick={this.trackCompleted}>Finish Track</button> 
                         </div>
-                     </div>
-                    
-                    
+                     </div>      
                 </>
                 : 
                 null}
                 {this.state.session? <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart}/> : null }
            </>
            :
-           <h2 class="uk-position-relative uk-position-center">Browse through skills to start learning </h2>
+           <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>
            }  
       </div>
       

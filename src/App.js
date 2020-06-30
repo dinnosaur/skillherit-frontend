@@ -57,41 +57,9 @@ class App extends Component {
   }
 
   
-
-  navigateTo = (pageName) => {
-    this.setState({ page: pageName })
-  }
-
-//   render = () => {
-//     // switch(this.state.page) {
-//     //   case "home":
-//     //     return <HomePage />
-//     //   case "profile":
-//     //     return <ProfilePage />
-//     //   case "new-post":
-//     //     return <PostFormPage />
-//     // 
-//     return (
-//       <Fragment>
-//         {
-//           this.state.user
-//           // ? <Authorised logout={this.logout} />
-//           ? <Fragment>
-//             <Navbar   logout = {this.logout} createSkill = {this.createSkill}/>
-//             {
-//               this.state.createSkill
-//               ? <SkillFormContainer  createSkill = {this.createSkill}/>
-//               : <SkillsContainer user = {this.state.user} /> 
-//             }
-//           </Fragment>
-//           : <Unauthorised login = {this.login} />  
-//         }  
-//       </Fragment>
-
-//     );
-
-//   }
-// }
+  // navigateTo = (pageName) => {
+  //   this.setState({ page: pageName })
+  // }
 
    render = ()  => {
   return (

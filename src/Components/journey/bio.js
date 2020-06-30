@@ -17,10 +17,10 @@ function Bio({user:{username,motto}})  {
                 </div>
             </header>
             <div class="uk-comment-body">
-                <p>{motto}</p>
+                <p class="uk-text-bold">{motto}</p>
             </div>
         </article>
-            <h4>Here you can find all your completed Tracks:</h4>
+            <h4 class="uk-text-light">Here you can find all your completed Tracks:</h4>
             <hr class="uk-divider-icon"/>
         </>
             );

@@ -25,16 +25,16 @@ function ShowSession(props)  {
     return (
          <>
             <div class= "uk-container uk-margin-large-top uk-box-shadow-small ">
-             <h3 >Skill: {session? session.track.skill.title :null}</h3>
+             <h3 class="uk-text-light">Skill: {session? session.track.skill.title :null}</h3>
              <h3 className="uk-position-relative uk-position-top-right">{session?session.date:null}</h3>
              <hr class="uk-divider-icon"/>
             <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
-                <div>
-                    <h4>Notes:</h4>
+                <div class="uk-text-lighter">
+                    <h4 class="uk-text-light">Notes:</h4>
                     {session?session.notes[0].content:null}
                 </div>
                 <div>
-                    <h4>Links:</h4>
+                    <h4 class="uk-text-light">Links:</h4>
                     <ul className="uk-list uk-list-striped">
                         {renderLinks()}
                     </ul>

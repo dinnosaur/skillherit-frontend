@@ -21,8 +21,8 @@ function SkillList(props)  {
        <div key = {skill.id}  class = "uk-margin-small uk-padding ">
            <div  onClick = {() => props.history.push(`/skills/${skill.id}`)} class="uk-card uk-card-small uk-card-hover uk-card-default uk-background-muted ">  
                <div class="uk-card-body ">
-               <h3 class="uk-card-title">{skill.title}</h3>
-                   <p>{skill.description}</p>
+               <h3 class="uk-card-title uk-text-light">{skill.title}</h3>
+                   <p class = "uk-text-light">{skill.description}</p>
                 </div>
     
                <div class="uk-card-media-bottom">

@@ -8,7 +8,7 @@ function TrackList(props)  {
               return (
                   <>
                 <li  key={track.id} class="uk-closed ">
-                  <a class="uk-accordion-title" href="#">{track.skill.title}</a>
+                  <a class="uk-accordion-title uk-text-lighter" href="#">{track.skill.title}</a>
                   
                    <div class="uk-accordion-content">
                      <p></p>
