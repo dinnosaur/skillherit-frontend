@@ -47,15 +47,16 @@ class TrackContainer extends Component {
   }
 
   calculateTimeDifference = (distractionTime) => {
-    debugger 
     const difference = moment.duration(this.state.endTime.diff(this.state.startTime))
     const distractionDuration = moment.duration(distractionTime).asHours()
     const duration = difference.asHours()
     const date = moment().format("YYYY-MM-DD")
+    
     this.submitSession(duration, date, distractionDuration)
   }
 
   submitSession = (duration, date, distractionDuration) => {
+      console.log(distractionDuration)
     const data = {
         session: {
             track_id: this.props.track.id,
@@ -83,28 +84,28 @@ class TrackContainer extends Component {
     })
   }
 
-handleChange = ({target:{value,name}}) => {
+  handleChange = ({target:{value,name}}) => {
     this.setState({
-           [name]:value
-          
-    })
-}
+        [name]:value
+            
+        })
+   }
 
-trackCompleted = () => {
+   trackCompleted = () => {
     API.updateTrack(this.props.track.id)
     .then(API.parseJson)
     .then(data => this.props.activeTrack(false))
     .catch(error => console.log(error))
-}
+    }
 
-    render = () => {
-
+   render = () => {
     const {track,duration} = this.props
     return (
       <div class= "uk-container uk-margin uk-padding-large uk-box-shadow-small ">
           {track ?
-           <><div className ="uk-margin-large-top uk-position-top-center uk-padding">
-                    <h3 class ="uk-heading-divider uk-text-light"> Current Track: {track.skill.title }</h3> 
+           <>
+            <div className ="uk-margin-large-top uk-position-top-center uk-padding">
+                <h3 class ="uk-heading-divider uk-text-light"> Current Track: {track.skill.title }</h3> 
             </div> 
                 {!this.state.session?
                 <>  
@@ -130,8 +131,7 @@ trackCompleted = () => {
            <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>
            }  
       </div>
-      
-      
+           
     );
     }
 }
