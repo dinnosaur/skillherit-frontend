@@ -34,12 +34,9 @@ function SkillForm(props) {
          </Fragment>)
     }
 
-
- 
-
     return (
-        <div className = "uk-container">
-        <form onSubmit = {props.handleSubmit} class="uk-form-horizontal  uk-margin-large uk-position-large uk-width-1-2 ">
+        <div className = "uk-container uk-width-1-2 uk-box-shadow-small uk-background-muted ">
+        <form onSubmit = {props.handleSubmit} class="uk-form-horizontal  uk-margin-large uk-position-large   ">
 
         <Input handleChange={props.handleChange} name={"title"} text={"Title"}  />
         <Input handleChange={props.handleChange} name={"description"} text={"Summary of your journey"} rows="2" />
@@ -76,7 +73,7 @@ function SkillForm(props) {
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Links</label>
             <div class="uk-form-controls">
-                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="Some text..." name="0"/>
+                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="..." name="0"/>
                 {linkArray}
                 <span><button class="uk-button uk-button-default" onClick = { newInput}> Add Link</button></span>
 
@@ -117,7 +114,7 @@ function SkillForm(props) {
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Advice</label>
             <div class="uk-form-controls">
-                <input onChange ={props.handleChange} name="advice"  class="uk-input" id="form-horizontal-text" type="text" placeholder="Some text..."/>
+                <input onChange ={props.handleChange} name="advice"  class="login uk-input" id="form-horizontal-text" type="text" placeholder="..."/>
             </div>
         </div>
 
@@ -136,7 +133,9 @@ function SkillForm(props) {
                 </select>
             </div>
         </div>
-        <button   type= "submit" class="uk-button uk-button-default">Post Skill</button>
+        <br/>
+        <br/>
+        <button   type= "submit" class="uk-button uk-button-default uk-position-relative uk-position-center uk-background-default">Post Skill</button>
     </form>
     </div>
     );
