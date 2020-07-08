@@ -4,8 +4,7 @@ import React, { Fragment, useReducer } from "react"
 function Bio({user:{username,motto}})  {
 
     
-        return (
-            
+        return (     
         <>
         <article class="uk-comment uk-comment-primary uk-margin-top uk-border-pill ">
             <header class="uk-comment-header uk-grid-medium uk-flex-middle" data-uk-grid>

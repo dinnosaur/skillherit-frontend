@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import {Link} from 'react-router-dom'
 
 function TrackList(props)  {
-
+  console.log("hey")
         const renderTracks = () => {
           return   props.tracks.map(track => { 
               return (
@@ -29,7 +29,7 @@ function TrackList(props)  {
             <>
                <ul data-uk-accordion="multiple: true">
                     {renderTracks()}
-                </ul>
+               </ul>
             </>
             );
       

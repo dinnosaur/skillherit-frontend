@@ -14,7 +14,6 @@ class TrackContainer extends Component {
         links: {},
       },
       content: "",
-
   }
 
   sessionStart = (state, distractionTime) => { 
@@ -124,8 +123,7 @@ class TrackContainer extends Component {
                      </div>      
                 </>
                 : 
-                null}
-                {this.state.session? <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart}/> : null }
+                <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart}/> }   
            </>
            :
            <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>

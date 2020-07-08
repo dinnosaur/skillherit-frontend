@@ -119,6 +119,7 @@ const fetchSession = (sessionId) => {
     return fetch(BASE_URL + `sessions/${sessionId}`, {headers: {AUTHORIZATION: localStorage.token}})
 }
 
+
 export default {
     signUpUser,
     logInUser,

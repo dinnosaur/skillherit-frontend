@@ -20,27 +20,24 @@ function ShowSkill(props)  {
           }
         }
 
-        
-
         return (
             <Fragment>
                 <div className ="uk-container uk-width-1-2 uk-margin-large-top ">
                     <h2 class="uk-position-relative uk-heading-divider uk-position-top-center" >{skill.title}</h2>
                     <h4 class="uk-position-relative  uk-position-top-right" >Difficulty: {skill.difficulty}</h4>
-                    <hr class="uk-divider-icon"/>
-                
+                    <hr class="uk-divider-icon"/>    
                 <div className ="uk-margin-large-top" data-uk-grid>
                     <div>
-                <h4>Summary of Journey:</h4>
-                    <p class = "uk-text-lighter">{skill.description}</p>
-                </div>
+                        <h4>Summary of Journey:</h4>
+                        <p class = "uk-text-lighter">{skill.description}</p>
+                    </div>
                 </div>
                
-
                 <hr/>
+
                 <div class="uk-child-width-1-1@s" data-uk-grid>
                     <div>
-                <p class = "uk-text-lighter">{skill.methodology}</p>
+                        <p class = "uk-text-lighter">{skill.methodology}</p>
                     </div>
                 </div>
                 <hr/>

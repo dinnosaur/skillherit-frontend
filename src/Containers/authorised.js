@@ -74,7 +74,7 @@ class Authorised extends Component {
             <Route exact path="/skills/:id" render= {(routerProps) => <ShowSkill {...routerProps} track={this.state.track} addToTrack={this.addToTrack} user ={this.props.user}/>}/>
             <Route exact path="/track" render={() => <TrackContainer duration={this.state.duration} getTrack={this.getTrack} activeTrack={this.activeTrack} track={this.state.track}/>}/>
             <Route exact path="/journey" render={(routerProps) => <Journey {...routerProps} user={this.props.user}/> }/>
-             <Route exact path="/sessions/:id" render={(routerProps) => <ShowSession {...routerProps}/>}/> 
+            <Route exact path="/sessions/:id" render={(routerProps) => <ShowSession {...routerProps}/>}/> 
           </Switch>
      </Fragment>
     );

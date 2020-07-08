@@ -84,7 +84,9 @@ function Session(props) {
              <div class="uk-grid-small" data-uk-grid>
              <h4 class="uk-margin-right uk-background-muted uk-border-rounded uk-text-light" uk-leader>Session Time:{hours} Hours {minutes} Minutes {seconds} Seconds</h4>
              </div>
+             
              <hr class="uk-divider-icon"/>
+             
              <form onSubmit= {() => props.sessionStop("end",distractionRef.current)} class="uk-form  uk-margin-large uk-position-large uk-width-1-1">
              <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
                 <div class="uk-margin ">
@@ -93,7 +95,6 @@ function Session(props) {
                         <textarea  onChange ={props.handleChange} name="content" class="uk-textarea" rows="5" placeholder="...."></textarea>
                 </div>
                     </div>  
-
                 <div class="uk-margin ">
                 <label class="uk-form-label" for="form-horizontal-text">Links</label>
                     <div class="uk-form-controls">
@@ -102,11 +103,11 @@ function Session(props) {
                     <span><button class="uk-button uk-button-default uk-background-muted" onClick = { newLinkInput}> Add Link</button></span>
                     </div>  
                 </div>
-                </div>
+             </div>
                 <button  class="uk-button uk-button-default uk-width-1-1 uk-background-muted" type="submit">Stop session</button>
                 </form>
-                {pauseState === false ? 
-                  
+                
+                {pauseState === false ?  
                     <button onClick ={() => distractionTimer("start")} class="uk-button uk-button-default uk-width-1-1 uk-background-muted"> Distracted!</button>
                   :
                     <button onClick ={() => distractionTimer("end")} class="uk-button uk-button-default uk-width-1-1 uk-background-muted"> Resume!</button>
