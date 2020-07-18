@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 function Navbar(props) {
   return (
     
-        <nav class=" uk-navbar-container uk-navbar-transparent  " data-uk-navbar  data-uk-sticky>
+        <nav class=" uk-navbar-container   " data-uk-navbar  data-uk-sticky>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
                     <li  class="uk-active"><Link to="/skills">SkillHerit</Link></li>

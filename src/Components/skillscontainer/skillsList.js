@@ -17,26 +17,26 @@ function SkillList(props)  {
     
     const renderSkills = () => {
        return props.skills.map(skill =>{ const id = skill.id;
-       return ( 
-       <div key = {skill.id}  class = "uk-margin-small uk-padding ">
-           <div  onClick = {() => props.history.push(`/skills/${skill.id}`)} class="uk-card uk-card-small uk-card-hover uk-card-default uk-background-muted ">  
-               <div class="uk-card-body ">
-               <h3 class="uk-card-title uk-text-light">{skill.title}</h3>
-                   <p class = "uk-text-light">{skill.description}</p>
-                </div>
-    
-               <div class="uk-card-media-bottom">
-               <img src={renderImages()} width="343" height="40"  />
-               </div>
-           </div> 
-       </div>)} )
+                return ( 
+                    <div key={skill.id}  class="uk-margin-small uk-padding ">
+                        <div  onClick = {() => props.history.push(`/skills/${skill.id}`)} class="uk-card uk-card-small uk-card-hover uk-card-default uk-background-muted ">  
+                            <div class="uk-card-body ">
+                            <h3 class="uk-card-title uk-text-light">{skill.title}</h3>
+                                <p class="uk-text-light">{skill.description}</p>
+                                </div>
+                            <div class="uk-card-media-bottom">
+                            <img src={renderImages()} width="343" height="40"  />
+                            </div>
+                        </div> 
+                    </div>
+                )
+            })
     }
         return (
-            <div class="uk-child-width-1-3 " data-uk-grid>
-            {renderSkills()}
-           </div>
-
-            );
+            <div class="uk-child-width-1-3 uk-margin-large-left" data-uk-grid>
+                {renderSkills()}
+            </div>
+        );
       
        
   }

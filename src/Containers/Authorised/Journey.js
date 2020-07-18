@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
 import Bio from '../../Components/journey/bio';
 import TrackList from '../../Components/journey/TrackList';
-import Statistics from '../../Components/journey/statistics';
+import Analytics from '../../Components/journey/Analytics';
 
 import moment from 'moment';
 
@@ -25,7 +25,7 @@ class Journey extends Component {
       <div class=" uk-container">
           <Bio user={this.props.user}/>
           <TrackList tracks={this.state.tracks} />
-          <Statistics tracks = {this.state.tracks}/>
+          <Analytics tracks = {this.state.tracks}/>
         
       </div>
 

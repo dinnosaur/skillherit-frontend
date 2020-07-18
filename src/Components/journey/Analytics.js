@@ -19,7 +19,7 @@ const calculateTotalTime = (props) => {
 }
 
 
-function Statistics(props) {
+function Analytics(props) {
     const [tracks, setTracks] = useState(props)
     const chartRef = useRef()
     data = calculateTotalTime(props) 
@@ -61,6 +61,7 @@ function Statistics(props) {
                 }
             }
         });
+
     })
 
 
@@ -79,4 +80,4 @@ function Statistics(props) {
     )
 }
 
-export default Statistics
+export default Analytics
