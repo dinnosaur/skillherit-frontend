@@ -35,7 +35,7 @@ function SkillForm(props) {
     }
 
     return (
-        <div className = "uk-container uk-width-1-2 uk-box-shadow-small uk-background-muted ">
+      <div className = "uk-container ">
         <form onSubmit = {props.handleSubmit} class="uk-form-horizontal  uk-margin-large uk-position-large   ">
 
         <Input handleChange={props.handleChange} name={"title"} text={"Title"}  />
@@ -73,7 +73,7 @@ function SkillForm(props) {
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Links</label>
             <div class="uk-form-controls">
-                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="..." name="0"/>
+                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="Add Links that were helpful" name="0"/>
                 {linkArray}
                 <span><button class="uk-button uk-button-default" onClick = { newInput}> Add Link</button></span>
 
@@ -137,7 +137,7 @@ function SkillForm(props) {
         <br/>
         <button   type= "submit" class="uk-button uk-button-default uk-position-relative uk-position-center uk-background-default">Post Skill</button>
     </form>
-    </div>
+   </div>
     );
 }
 

@@ -56,8 +56,7 @@ class SkillsContainer extends Component {
       <div class= "uk-container uk-container-expand">
         
            <SkillFilter active={this.state.active} showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/>
-        
-            <SkillList  skills={this.state.filterSkills}/>
+           <SkillList  skills={this.state.filterSkills}/>
        
       </div>   
     );

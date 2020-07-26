@@ -19,10 +19,10 @@ export default class Login extends Component {
             <div class="uk-flex uk-flex-center uk-flex-middle">
                 <div class="uk-inline">
                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                    <input name = "password"  onChange = {handlechange} class="login uk-input" type="password"/>
+                    <input name="password"  onChange = {handlechange} class="login uk-input" type="password"/>
                 </div>
             </div>
-            <button onClick = {handlesubmit} type= "submit" class="uk-button uk-button-default">Login</button>
+            <button onClick={handlesubmit} type= "submit" class="uk-button uk-button-default">Login</button>
             <span><Link to="/signup"><button class="uk-button uk-button-default">Signup</button></Link> </span>
         </form>
         </div>

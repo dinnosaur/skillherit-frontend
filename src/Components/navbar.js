@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 
 function Navbar(props) {
   return (
-    
         <nav class=" uk-navbar-container   " data-uk-navbar  data-uk-sticky>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">

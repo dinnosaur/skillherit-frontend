@@ -37,7 +37,9 @@ function ShowSkill(props)  {
 
                 <div class="uk-child-width-1-1@s" data-uk-grid>
                     <div>
-                        <p class = "uk-text-lighter">{skill.methodology}</p>
+                        
+                        <p class="formatting uk-text-lighter">{skill.methodology}</p>
+                        
                     </div>
                 </div>
                 <hr/>
