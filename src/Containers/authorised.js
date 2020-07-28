@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react"
 import { Route ,Switch} from 'react-router-dom';
-import SkillsContainer from "./Authorised/SkillsContainer";
-import SkillFormContainer from "./Authorised/SkillFormContainer";
+import SkillsContainer from "../Components/skillscontainer/SkillsContainer";
+import SkillFormContainer from "../Components/skillsformcontainer/SkillFormContainer";
 import ShowSkill from "../Components/showSkill";
-import TrackContainer from "./Authorised/TrackContainer"
+import TrackContainer from "../Components/TrackContainer/TrackContainer"
 import Navbar from "../Components/navbar"
-import Journey from "./Authorised/Journey";
+import Journey from "../Components/journey/Journey";
 import ShowSession from "../Components/showSession";
 import moment from 'moment';
 import  "moment-duration-format"

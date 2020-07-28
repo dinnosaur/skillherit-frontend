@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
-import Bio from '../../Components/journey/bio';
-import TrackList from '../../Components/journey/TrackList';
-import Analytics from '../../Components/journey/Analytics';
+import Bio from './bio';
+import TrackList from './TrackList';
+import Analytics from './Analytics';
 
 import moment from 'moment';
 

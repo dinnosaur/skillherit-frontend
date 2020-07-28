@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SkillForm from '../../Components/skillsformcontainer/skillForm';
+import SkillForm from './skillForm';
 import API from "../../API"
 
 export default class SkillFormContainer extends Component {

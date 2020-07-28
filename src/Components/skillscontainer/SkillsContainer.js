@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react"
-import SkillList from "../../Components/skillscontainer/skillsList"
-import SkillFilter from "../../Components/skillscontainer/skillFilter"
-import ShowSkill from "../../Components/showSkill"
+import SkillList from "./skillsList"
+import SkillFilter from "./skillFilter"
+import ShowSkill from "../showSkill"
 
 
 import API from "../../API.js"
@@ -54,10 +54,8 @@ class SkillsContainer extends Component {
     return (
     
       <div class= "uk-container uk-container-expand">
-        
            <SkillFilter active={this.state.active} showAll = {this.showAll} handleLength = {this.handleLength} handleTopic = {this.handleTopic}/>
-           <SkillList  skills={this.state.filterSkills}/>
-       
+           <SkillList  skills={this.state.filterSkills}/> 
       </div>   
     );
   

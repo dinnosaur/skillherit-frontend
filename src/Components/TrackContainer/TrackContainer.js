@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Session from "../../Components/TrackContainer/session"
+import Session from "./session"
 import moment from 'moment';
 
 

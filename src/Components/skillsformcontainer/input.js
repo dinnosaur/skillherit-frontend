@@ -9,7 +9,7 @@ function Input(props)  {
              <div class="uk-margin ">
                 <label class="uk-form-label" for="form-horizontal-text">{props.text}</label>
                 <div class="uk-form-controls">
-                    <textarea onChange={props.handleChange} name={props.name} class="login uk-textarea" rows={props.rows} placeholder="..."></textarea>
+                    <textarea onChange={props.handleChange} name={props.name} class="login uk-textarea" rows={props.rows} placeholder={props.placeholder}></textarea>
                 </div>
             </div>
          )
