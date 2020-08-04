@@ -41,7 +41,7 @@ class App extends Component {
      .then(resp => resp.json())
      .then(data => {this.setState({
        user:data
-     },() =>  this.props.history.push(`/skills`));
+     });
      localStorage.token = data.token 
     })
     }

@@ -25,8 +25,7 @@ class Journey extends Component {
       <div class=" uk-container">
           <Bio user={this.props.user}/>
           <TrackList tracks={this.state.tracks} />
-          <Analytics tracks = {this.state.tracks}/>
-        
+          <Analytics tracks = {this.state.tracks}/> 
       </div>
 
     );

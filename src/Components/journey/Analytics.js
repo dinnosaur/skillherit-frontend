@@ -20,17 +20,18 @@ const calculateTotalTime = (props) => {
 
 
 function Analytics(props) {
-    const [tracks, setTracks] = useState(props)
-    const chartRef = useRef()
+    const pieChartRef = useRef()
+    const barChartRef = useRef()
     data = calculateTotalTime(props) 
     console.log(data)
     
 
 
     useEffect(() => {
-        const  myChartRef = chartRef.current.getContext("2d")
+        const  myChartRef = pieChartRef.current.getContext("2d")
+        const myChartRef2 = pieChartRef.current.getContext("2d")
         
-        new Chart(myChartRef, {
+        new Chart(pieChartRef, {
             type: "pie",
             data: {
                 //Bring in data
@@ -62,17 +63,27 @@ function Analytics(props) {
             }
         });
 
+        new Chart(myChartRef, {
+            type: 'bar',
+            data:data,
+            options: {
+                title: {
+                    display: true,
+                    text: 'Breakdown of your learning jouney'
+                }
+            }
+
+        })
     })
 
 
-    
     return(
         <>
             {props.tracks? 
             <>
                 <br/>
                 <br/>
-                <canvas id="myChart" width="400" ref={chartRef}/>
+                <canvas id="myChart" width="400" ref={pieChartRef}/>
             </>
             : 
             null}
