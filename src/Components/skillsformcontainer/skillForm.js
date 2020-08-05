@@ -35,48 +35,20 @@ function SkillForm(props) {
     }
 
     return (
-        <div className = "uk-container uk-width-1-2 uk-box-shadow-small uk-background-muted ">
+      <div className = "uk-container ">
         <form onSubmit = {props.handleSubmit} class="uk-form-horizontal  uk-margin-large uk-position-large   ">
 
         <Input handleChange={props.handleChange} name={"title"} text={"Title"}  />
-        <Input handleChange={props.handleChange} name={"description"} text={"Summary of your journey"} rows="2" />
-        <Input handleChange={props.handleChange} name={"methodology"} text={"Methodologies"} rows="5"/>
-        <Input handleChange={props.handleChange} name={"achievements"} text={"Achievements"} rows="3"/>
-        {/* <div class="uk-margin ">
-            <label class="uk-form-label" for="form-horizontal-text">Title</label>
-            <div class="uk-form-controls">
-                <input onChange ={props.handleChange} name="title" class="login uk-input" id="form-horizontal-text" type="text" placeholder="Some text..." required/>
-            </div>
-        </div>
-
-        <div class="uk-margin ">
-            <label class="uk-form-label" for="form-horizontal-text">Summary of your journey</label>
-            <div class="uk-form-controls">
-                <input onChange ={props.handleChange} name="description" class=" login uk-input" id="form-horizontal-text" type="text" placeholder="Some text..."/>
-            </div>
-        </div>
-
-        <div class="uk-margin ">
-            <label class="uk-form-label" for="form-horizontal-text">Methodologies</label>
-            <div class="uk-form-controls">
-            <textarea required onChange ={props.handleChange} name="methodology" class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
-            </div>
-        </div>
-
-        <div class="uk-margin ">
-            <label class="uk-form-label" for="form-horizontal-text">Achievements</label>
-            <div class="uk-form-controls">
-                <textarea onChange ={props.handleChange} name="achievements" class="uk-textarea" rows="3" placeholder="Textarea"></textarea>
-            </div>
-    </div>*/}
-
+        <Input handleChange={props.handleChange} name={"description"} text={"Summary of your journey"} rows="2" placeholder={"Write a Summary"}/>
+        <Input handleChange={props.handleChange} name={"methodology"} text={"Methodologies"} rows="5" placeholder={"Explain your process"}/>
+        <Input handleChange={props.handleChange} name={"achievements"} text={"Achievements"} rows="3" placeholder={"Aything you accomplished after completing this"}/>
+       
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Links</label>
             <div class="uk-form-controls">
-                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="..." name="0"/>
+                <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="Add Links that were helpful" name="0"/>
                 {linkArray}
                 <span><button class="uk-button uk-button-default" onClick = { newInput}> Add Link</button></span>
-
             </div>  
         </div> 
         
@@ -96,7 +68,7 @@ function SkillForm(props) {
         <div class="uk-margin">
             <label class="uk-form-label" for="form-horizontal-select">Duration</label>
             <div class="uk-form-controls">
-                <span><select onChange ={props.handleDuration} name = "years" placeholder = "Years" class="uk-select" id="form-horizontal-select">
+                <span><select onChange ={props.handleDuration} name="years" placeholder = "Years" class="uk-select" id="form-horizontal-select">
                     <option>0 years</option>
                     <option>1 year</option>
                     <option>3 years</option>
@@ -137,7 +109,7 @@ function SkillForm(props) {
         <br/>
         <button   type= "submit" class="uk-button uk-button-default uk-position-relative uk-position-center uk-background-default">Post Skill</button>
     </form>
-    </div>
+   </div>
     );
 }
 

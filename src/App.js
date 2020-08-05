@@ -4,9 +4,6 @@ import { Route, Redirect, withRouter} from 'react-router-dom';
 import Unauthorised from "./Containers/unauthorised"
 import Authorised from "./Containers/authorised"
 
-
-
-
 import API from "./API"
 
 class App extends Component {
@@ -44,7 +41,7 @@ class App extends Component {
      .then(resp => resp.json())
      .then(data => {this.setState({
        user:data
-     },() =>  this.props.history.push(`/skills`));
+     });
      localStorage.token = data.token 
     })
     }
