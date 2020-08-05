@@ -9,27 +9,27 @@ import API from "../../API.js"
 
 class Journey extends Component {
     state = {
-        tracks:[]
+        tracks: []
     }
     componentDidMount() {
         API.fetchCompletedTracks()
-        .then(API.parseJson)
-        .then(data => this.setState({tracks:data}))
-        .catch(error => console.log(error))
+            .then(API.parseJson)
+            .then(data => this.setState({ tracks: data }))
+            .catch(error => console.log(error))
     }
 
 
     render = () => {
-  
-    return (
-      <div class=" uk-container">
-          <Bio user={this.props.user}/>
-          <TrackList tracks={this.state.tracks} />
-          <Analytics tracks = {this.state.tracks}/> 
-      </div>
 
-    );
+        return (
+            <div class=" uk-container">
+                <Bio user={this.props.user} />
+                <TrackList tracks={this.state.tracks} />
+                <Analytics tracks={this.state.tracks} />
+            </div>
+
+        );
     }
 }
 
-  export default Journey
+export default Journey

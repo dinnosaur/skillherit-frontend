@@ -8,42 +8,41 @@ export default class SkillFormContainer extends Component {
         links: {},
         title: "",
         description: "",
-        achievements: "", 
+        achievements: "",
         difficulty: "Easy",
-        duration: {years:"0" ,months: "0" },
+        duration: { years: "0", months: "0" },
         advice: "",
-        topic: "Design" ,
+        topic: "Design",
         methodology: ""
-        
-    }
-   
-    handleLinks = ({target:{value,name}}) => {
-        this.setState({
-            links: {...this.state.links,[name]:value}
-        } )
+
     }
 
-    handleChange = ({target:{value,name}}) => {
+    handleLinks = ({ target: { value, name } }) => {
         this.setState({
-            [name]:value
+            links: { ...this.state.links, [name]: value }
         })
     }
 
-    handleDuration = ({target:{value,name}}) => {
-       let valueToInt = ""
-        if (value === "Less than a month" ){
-                 valueToInt = "0"
-       }
-       else 
-       {
+    handleChange = ({ target: { value, name } }) => {
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleDuration = ({ target: { value, name } }) => {
+        let valueToInt = ""
+        if (value === "Less than a month") {
+            valueToInt = "0"
+        }
+        else {
             valueToInt = value.split(" ")[0]
-       }
+        }
         this.setState({
-            duration:{...this.state.duration, [name]:valueToInt}
+            duration: { ...this.state.duration, [name]: valueToInt }
         })
     }
 
-    handleTopics = ({target:{value}}) => {
+    handleTopics = ({ target: { value } }) => {
         this.setState({
             topic: value
         })
@@ -53,14 +52,14 @@ export default class SkillFormContainer extends Component {
         console.log(e)
         e.preventDefault()
         API.postSkill(this.state)
-        .then(API.parseJson)
-        .then(data => this.props.history.push(`/skills`))
-        .catch(err => console.log(err))
+            .then(API.parseJson)
+            .then(data => this.props.history.push(`/skills`))
+            .catch(err => console.log(err))
     }
 
-    render = () => {  
+    render = () => {
         return (
-            <SkillForm handleSubmit = {this.handleSubmit} handleDuration = {this.handleDuration} handleChange = {this.handleChange} handleLinks = {this.handleLinks}/>
+            <SkillForm handleSubmit={this.handleSubmit} handleDuration={this.handleDuration} handleChange={this.handleChange} handleLinks={this.handleLinks} />
         )
     }
-  }
+}
