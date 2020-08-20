@@ -24,7 +24,7 @@ const calculateTotalTime = (props) => {
 function Analytics(props) {
     const pieChartRef = useRef()
     const barChartRef = useRef()
-    data = calculateTotalTime(props)
+    dataPie = calculateTotalTime(props)
     console.log(data)
 
 
@@ -42,7 +42,7 @@ function Analytics(props) {
                 datasets: [
                     {
                         label: "Time",
-                        data: data,
+                        data: dataPie,
                         backgroundColor: [
                             "#4b77a9",
                             "#5f255f"
