@@ -3,7 +3,9 @@ import { Redirect, withRouter } from "react-router-dom";
 import Chart from "chart.js";
 import { months } from "moment";
 
-let data = []
+let dataPie = []
+let dataBar = []
+let labels = []
 
 const calculateTotalTime = (props) => {
     let totalFocused = 0
@@ -29,9 +31,9 @@ function Analytics(props) {
 
     useEffect(() => {
         const myChartRef = pieChartRef.current.getContext("2d")
-        const myChartRef2 = pieChartRef.current.getContext("2d")
+        const myChartRef2 = barChartRef.current.getContext("2d")
 
-        new Chart(pieChartRef, {
+        new Chart(myChartRef, {
             type: "pie",
             data: {
                 //Bring in data
@@ -63,16 +65,29 @@ function Analytics(props) {
             }
         });
 
-        new Chart(myChartRef, {
+        new Chart(myChartRef2, {
             type: 'bar',
-            data: data,
+            data: {labels: ["<  1","1 - 2","3 - 4","5 - 9","10 - 14","15 - 19","20 - 24","25 - 29","> - 29"],
+                datasets: [{
+                    label: 'Focused',
+                    backgroundColor: "#caf270",
+                    data: [12, 59, 5, 56, 58,12, 59, 87, 45],
+                }, {
+                    label: 'Distracted',
+                    backgroundColor: "#45c490",
+                    data: [18, 59, 5, 56, 58,12, 59, 85, 23],
+                }],
+            },
             options: {
-                title: {
-                    display: true,
-                    text: 'Breakdown of your learning jouney'
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
                 }
             }
-
         })
     })
 
@@ -83,10 +98,12 @@ function Analytics(props) {
                 <>
                     <br />
                     <br />
-                    <canvas id="myChart" width="400" ref={pieChartRef} />
+                    <canvas id="myPie" width="400" ref={pieChartRef} />
+                    <canvas id="myBar" width="400" ref={barChartRef} />
                 </>
                 :
-                null}
+                null
+            }
         </>
     )
 }
