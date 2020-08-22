@@ -6,6 +6,7 @@ import Analytics from './Analytics';
 import moment from 'moment';
 
 import API from "../../API.js"
+import Example from "./Example";
 
 class Journey extends Component {
     state = {
@@ -25,7 +26,8 @@ class Journey extends Component {
             <div class=" uk-container">
                 <Bio user={this.props.user} />
                 <TrackList tracks={this.state.tracks} />
-                <Analytics tracks={this.state.tracks} />
+                {/* <Analytics tracks={this.state.tracks} /> */}
+                <Example tracks={this.state.tracks} />
             </div>
 
         );

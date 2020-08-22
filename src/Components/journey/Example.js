@@ -24,14 +24,15 @@ const trackTime = (props) => {
     
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
+        
     })
-    
+    console.log(labels)
 }
 
  
 
 
-function Analytics(props) {
+function Example(props) {
     const pieChartRef = useRef()
     const barChartRef = useRef()
     dataPie = calculateTotalTime(props)
@@ -90,12 +91,42 @@ function Analytics(props) {
                 }],
             },
             options: {
+                // Elements options apply to all of the options unless overridden in a dataset
+                // In this case, we are setting the border of each bar to be 2px wide and green
+                elements: {
+                    rectangle: {
+                        borderWidth: 2,
+                        borderColor: 'rgb(0, 255, 0)',
+                        borderSkipped: 'bottom'
+                    }
+                },
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Chart.js Bar Chart'
+                },
+                pan: {
+                    enabled: true,
+                    mode: 'xy' // is panning about the y axis neccessary for bar charts?
+                },
+                zoom: {
+                    enabled: true,
+                    mode: 'x',
+                    sensitivity: 3,
+                    limits: {
+                        max: 10,
+                        min: 0.5
+                    }
+                },
                 scales: {
                     xAxes: [{
-                        stacked: true
-                    }],
-                    yAxes: [{
-                        stacked: true
+                        ticks: {
+                            min: 'February-16',
+                            max: 'June-16'
+                        }
                     }]
                 }
             }
@@ -119,4 +150,4 @@ function Analytics(props) {
     )
 }
 
-export default Analytics
+export default Example
