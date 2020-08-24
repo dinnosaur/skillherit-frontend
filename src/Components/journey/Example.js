@@ -1,7 +1,9 @@
 import React, { Component, Fragment, useEffect, useState, useRef } from "react"
 import { Redirect, withRouter } from "react-router-dom";
 import Chart from "chart.js";
+import {VictoryBar,VictoryChart,VictoryAxis} from 'victory';
 import { months } from "moment";
+import { VictoryTheme } from "victory";
 
 let dataPie = []
 let dataBar = []
@@ -133,6 +135,23 @@ function Example(props) {
         })
     })
 
+    const data = [
+        {quarter: "A 1", earnings: 13000},
+        {quarter: "A 2", earnings: 16500},
+        {quarter: "A 3", earnings: 14250},
+        {quarter: "A4", earnings: 190000},
+        {quarter: "aeqeuqorufsdfiusidfysfA4", earnings: 19000},
+        {quarter:"aeqeuaskjlakjflkjaldjljsglksjgljsfgjlsfA46", earnings: 19700},
+        {quarter: "aeqeuasldjalfjdffA46", earnings: 17800},
+        {quarter: "aesfsflafeysfA46", earnings: 145000},
+        {quarter: "aeqeu323dfysfA46", earnings: 12004},
+        {quarter: "aeqeuwewesdfysfA46", earnings: 19500},
+      
+      ];
+
+
+
+
 
     return (
         <>
@@ -142,6 +161,25 @@ function Example(props) {
                     <br />
                     <canvas id="myPie" width="400" ref={pieChartRef} />
                     <canvas id="myBar" width="400" ref={barChartRef} />
+                    <VictoryChart
+                    domainPadding={20}>
+                    <VictoryAxis
+          // tickValues specifies both the number of ticks and where
+          // they are placed on the axis
+          tickValues={[1, 2, 3, 4,5,6,7,8,9,10]}
+          tickFormat={["A 1", "A 2", "A 3","aeqeuqorufsdfiusidfysfA4","aeqeuaskjlakjflkjaldjljsglksjgljsfgjlsfA46","aeqeuasldjalfjdffA46","aesfsflafeysfA46","aeqeu323dfysfA46","aeqeuwewesdfysfA46"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          // tickFormat specifies how ticks should be displayed
+          tickFormat={(x) => (`$${x / 1000}k`)}
+        />
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+        />
+      </VictoryChart>
                 </>
                 :
                 null

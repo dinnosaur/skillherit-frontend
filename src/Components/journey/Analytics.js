@@ -4,7 +4,7 @@ import Chart from "chart.js";
 import { months } from "moment";
 
 let dataPie = []
-let dataBar = []
+
 let labels = []
 
 const calculateTotalTime = (props) => {
@@ -20,13 +20,27 @@ const calculateTotalTime = (props) => {
     return [percentageDistracted, percentageFocused]
 }
 
+
+
 const trackTime = (props) => {
-    
+    let distracted = [] 
+    let focused = [] 
+
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
+        distracted = [...distracted, track.distraction]
+        focused = [...focused, track.time]
     })
-    
+
+    return {
+            labels: labels, 
+            distracted: distracted,
+            focused: focused,
+           }
 }
+
+
+
 
  
 
@@ -35,7 +49,7 @@ function Analytics(props) {
     const pieChartRef = useRef()
     const barChartRef = useRef()
     dataPie = calculateTotalTime(props)
-    dataBar = trackTime(props)
+    const dataBar = trackTime(props)
     console.log(props)
 
 
@@ -78,15 +92,15 @@ function Analytics(props) {
 
         new Chart(myChartRef2, {
             type: 'bar',
-            data: {labels: labels,
+            data: {labels: dataBar.labels,
                 datasets: [{
                     label: 'Focused',
                     backgroundColor: "#caf270",
-                    data: [12, 59, 5, 56, 58,12, 59, 87, 45],
+                    data: [dataBar.focused],
                 }, {
                     label: 'Distracted',
                     backgroundColor: "#45c490",
-                    data: [18, 59, 5, 56, 58,12, 59, 85, 23],
+                    data: [dataBar.distracted],
                 }],
             },
             options: {
