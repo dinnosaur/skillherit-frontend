@@ -3,7 +3,9 @@ import { Redirect, withRouter } from "react-router-dom";
 import Chart from "chart.js";
 import { months } from "moment";
 
-let data = []
+let dataPie = []
+
+let labels = []
 
 const calculateTotalTime = (props) => {
     let totalFocused = 0
@@ -19,19 +21,44 @@ const calculateTotalTime = (props) => {
 }
 
 
+
+const trackTime = (props) => {
+    let distracted = [] 
+    let focused = [] 
+
+    props.tracks.map(track => {
+        labels = [...labels,track.skill.title]
+        distracted = [...distracted, track.distraction]
+        focused = [...focused, track.time]
+    })
+
+    return {
+            labels: labels, 
+            distracted: distracted,
+            focused: focused,
+           }
+}
+
+
+
+
+ 
+
+
 function Analytics(props) {
     const pieChartRef = useRef()
     const barChartRef = useRef()
-    data = calculateTotalTime(props)
-    console.log(data)
+    dataPie = calculateTotalTime(props)
+    const dataBar = trackTime(props)
+    console.log(props)
 
 
 
     useEffect(() => {
         const myChartRef = pieChartRef.current.getContext("2d")
-        const myChartRef2 = pieChartRef.current.getContext("2d")
+        const myChartRef2 = barChartRef.current.getContext("2d")
 
-        new Chart(pieChartRef, {
+        new Chart(myChartRef, {
             type: "pie",
             data: {
                 //Bring in data
@@ -40,7 +67,7 @@ function Analytics(props) {
                 datasets: [
                     {
                         label: "Time",
-                        data: data,
+                        data: dataPie,
                         backgroundColor: [
                             "#4b77a9",
                             "#5f255f"
@@ -63,16 +90,29 @@ function Analytics(props) {
             }
         });
 
-        new Chart(myChartRef, {
+        new Chart(myChartRef2, {
             type: 'bar',
-            data: data,
+            data: {labels: dataBar.labels,
+                datasets: [{
+                    label: 'Focused',
+                    backgroundColor: "#caf270",
+                    data: [dataBar.focused],
+                }, {
+                    label: 'Distracted',
+                    backgroundColor: "#45c490",
+                    data: [dataBar.distracted],
+                }],
+            },
             options: {
-                title: {
-                    display: true,
-                    text: 'Breakdown of your learning jouney'
+                scales: {
+                    xAxes: [{
+                        stacked: true
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
                 }
             }
-
         })
     })
 
@@ -83,10 +123,12 @@ function Analytics(props) {
                 <>
                     <br />
                     <br />
-                    <canvas id="myChart" width="400" ref={pieChartRef} />
+                    <canvas id="myPie" width="400" ref={pieChartRef} />
+                    <canvas id="myBar" width="400" ref={barChartRef} />
                 </>
                 :
-                null}
+                null
+            }
         </>
     )
 }
