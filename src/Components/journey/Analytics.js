@@ -1,11 +1,10 @@
 import React, { Component, Fragment, useEffect, useState, useRef } from "react"
 import { Redirect, withRouter } from "react-router-dom";
-import Chart from "chart.js";
-import { months } from "moment";
+import {Chart,timeFormat} from "chart.js";
+import moment from 'moment';
 
 let dataPie = []
 
-let labels = []
 
 const calculateTotalTime = (props) => {
     let totalFocused = 0
@@ -21,16 +20,28 @@ const calculateTotalTime = (props) => {
 }
 
 
-
 const trackTime = (props) => {
     let distracted = [] 
+    let distraction = null
+    let focus = null 
+   
     let focused = [] 
+    let labels = []
 
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
-        distracted = [...distracted, track.distraction]
-        focused = [...focused, track.time]
+        // distraction = moment.duration(track.distraction, 'hours')
+       
+        console.log(distraction)
+        distracted = [...distracted,  track.distraction]
+        
+        // focus = moment.duration(track.time, 'hours')
+      
+        console.log(focus)
+        focused = [...focused,track.time ]
     })
+    
+
 
     return {
             labels: labels, 
@@ -39,10 +50,6 @@ const trackTime = (props) => {
            }
 }
 
-
-
-
- 
 
 
 function Analytics(props) {
@@ -96,11 +103,11 @@ function Analytics(props) {
                 datasets: [{
                     label: 'Focused',
                     backgroundColor: "#caf270",
-                    data: [dataBar.focused],
+                    data: dataBar.focused,
                 }, {
                     label: 'Distracted',
                     backgroundColor: "#45c490",
-                    data: [dataBar.distracted],
+                    data: dataBar.distracted,
                 }],
             },
             options: {
@@ -109,6 +116,13 @@ function Analytics(props) {
                         stacked: true
                     }],
                     yAxes: [{
+                        type: 'time',
+                        time: {
+                            parser: h.hh,
+                            unit: "hours",
+                        },
+                      
+                
                         stacked: true
                     }]
                 }

@@ -126,7 +126,7 @@ class TrackContainer extends Component {
                                         </div>
                                     </>
                                 : 
-                                        <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart} />
+                                    <Session handleChange={this.handleChange} handleLinks={this.handleLinks} track={track} sessionStop={this.sessionStart} />
                             
                             }
                         </>
