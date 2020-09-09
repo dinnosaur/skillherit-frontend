@@ -118,11 +118,15 @@ function Analytics(props) {
                     yAxes: [{
                         type: 'time',
                         time: {
-                            parser: h.hh,
+                            parser: 'h.hh',
                             unit: "hours",
                         },
-                      
-                
+                        displayFormats: {
+                            'seconds': 's',
+                            'minutes': 'm',
+                            'hours': 'h'
+
+                        },
                         stacked: true
                     }]
                 }
