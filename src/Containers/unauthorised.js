@@ -40,7 +40,7 @@ class Unauthorised extends Component {
             .then(API.parseJson)
             .then(data => this.props.login(data))
             .catch(err => {
-                console.log(err)
+                console.log("err")
             })
     }
 

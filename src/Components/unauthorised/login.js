@@ -14,7 +14,7 @@ export default class Login extends Component {
                         <div class="uk-inline">
                             <span className="uk-form-icon" uk-icon="icon: user"></span>
                             <input name="username" onChange={handlechange} className="login uk-input" type="text" />
-                        </div>
+                        </div> 
                     </div>
                     <div class="uk-flex uk-flex-center uk-flex-middle">
                         <div class="uk-inline">
