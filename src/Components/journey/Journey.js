@@ -1,12 +1,10 @@
-import React, { Component, Fragment } from "react"
+import React, { Component} from "react"
 import Bio from './bio';
 import TrackList from './TrackList';
 import Analytics from './Analytics';
 
-import moment from 'moment';
-
 import API from "../../API.js"
-import Example from "./Example";
+// import Example from "./Example";
 
 class Journey extends Component {
     state = {

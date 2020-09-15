@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Redirect, withRouter } from "react-router-dom";
 import {Chart,timeFormat} from "chart.js";
 import moment from 'moment';
@@ -33,12 +33,12 @@ const trackTime = (props) => {
         // distraction = moment.duration(track.distraction, 'hours')
        
         console.log(distraction)
-        distracted = [...distracted,  track.distraction]
+        distracted = [...distracted,  track.distraction.toString()]
         
         // focus = moment.duration(track.time, 'hours')
       
         console.log(focus)
-        focused = [...focused,track.time ]
+        focused = [...focused,track.time.toString() ]
     })
     
 
@@ -118,16 +118,24 @@ function Analytics(props) {
                     yAxes: [{
                         type: 'time',
                         time: {
-                            parser: 'h.hh',
-                            unit: "hours",
-                        },
-                        displayFormats: {
-                            'seconds': 's',
-                            'minutes': 'm',
-                            'hours': 'h'
+                        parser: 'h',
+                        unit: "minute",
+                        minUnit: "millisecond",
+                        unitStepSize: 1,
+                        min: '0',
+                        max: '10',
 
+                         displayFormats: {
+                            millisecond: 'HH:mm:ss.SSS',
+                            second: 'HH:mm:ss',
+                            minute: 'HH:mm',
+                            hour: 'HH'
                         },
-                        stacked: true
+                        },
+                        
+                        
+                          
+                       stacked: true
                     }]
                 }
             }
