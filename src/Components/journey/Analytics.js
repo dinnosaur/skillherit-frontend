@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react"
 import { Redirect, withRouter } from "react-router-dom";
-import {Chart,timeFormat} from "chart.js";
+import {Chart} from "chart.js";
 import moment from 'moment';
 
 let dataPie = []
@@ -21,33 +21,52 @@ const calculateTotalTime = (props) => {
 
 
 const trackTime = (props) => {
-    let distracted = [] 
+    let distractions = [] 
     let distraction = null
     let focus = null 
    
     let focused = [] 
     let labels = []
 
+    timeFormat(props)
+
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
-        // distraction = moment.duration(track.distraction, 'hours')
-       
-        console.log(distraction)
-        distracted = [...distracted,  track.distraction.toString()]
+        distraction = moment.duration(track.distraction, 'hours')
         
-        // focus = moment.duration(track.time, 'hours')
       
-        console.log(focus)
-        focused = [...focused,track.time.toString() ]
+        console.log(distraction.format("h [hrs]"))
+        distractions = [...distractions,  distraction.format("h, m ")]
+        
+        
+        focus = moment.duration(track.time, 'hours')
+       
+       
+        console.log(focus.format("h [hrs]"))
+        focused = [...focused, focus.format("h,  m ")]
     })
     
-
-
     return {
             labels: labels, 
-            distracted: distracted,
+            distracted: distractions,
             focused: focused,
            }
+}
+
+const timeFormat = (props) => { 
+    let highestTime = 0
+
+    props.tracks.map(track => { 
+        if (highestTime < track.time) {
+            highestTime = track.time
+        }   
+    })
+    
+    highestTime = moment.duration(highestTime, 'hours')
+    
+    
+
+    
 }
 
 
@@ -116,26 +135,26 @@ function Analytics(props) {
                         stacked: true
                     }],
                     yAxes: [{
-                        type: 'time',
-                        time: {
-                        parser: 'h',
-                        unit: "minute",
-                        minUnit: "millisecond",
-                        unitStepSize: 1,
-                        min: '0',
-                        max: '10',
+                    //     type: 'time',
+                    //     time: {
+                    //     parser: 'h',
+                    //     unit: "minute",
+                    //     minUnit: "millisecond",
+                    //     unitStepSize: 1,
+                    //     min: '0',
+                    //     max: '10',
 
-                         displayFormats: {
-                            millisecond: 'HH:mm:ss.SSS',
-                            second: 'HH:mm:ss',
-                            minute: 'HH:mm',
-                            hour: 'HH'
-                        },
-                        },
+                    //      displayFormats: {
+                    //         millisecond: 'HH:mm:ss.SSS',
+                    //         second: 'HH:mm:ss',
+                    //         minute: 'HH:mm',
+                    //         hour: 'HH'
+                    //     },
+                    //     },
                         
                         
                           
-                       stacked: true
+                        stacked: true
                     }]
                 }
             }
