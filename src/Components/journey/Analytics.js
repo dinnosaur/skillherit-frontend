@@ -63,13 +63,11 @@ const timeFormat = (props) => {
     })
     
     highestTime = moment.duration(highestTime, 'hours')
-    
+    highestTime.format("h [hrs], m [min], s [sec]")
     
 
     
 }
-
-
 
 function Analytics(props) {
     const pieChartRef = useRef()
@@ -150,10 +148,7 @@ function Analytics(props) {
                     //         minute: 'HH:mm',
                     //         hour: 'HH'
                     //     },
-                    //     },
-                        
-                        
-                          
+                    //     },   
                         stacked: true
                     }]
                 }

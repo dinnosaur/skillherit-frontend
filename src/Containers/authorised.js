@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react"
-import { Route ,Switch} from 'react-router-dom';
+import { Route ,Switch, Redirect} from 'react-router-dom';
 import SkillsContainer from "../Components/skillscontainer/SkillsContainer";
 import SkillFormContainer from "../Components/skillsformcontainer/SkillFormContainer";
 import ShowSkill from "../Components/showSkill";
@@ -76,6 +76,9 @@ class Authorised extends Component {
             <Route exact path="/track" render={() => <TrackContainer duration={this.state.duration} getTrack={this.getTrack} activeTrack={this.activeTrack} track={this.state.track}/>}/>
             <Route exact path="/journey" render={(routerProps) => <Journey {...routerProps} user={this.props.user}/> }/>
             <Route exact path="/sessions/:id" render={(routerProps) => <ShowSession {...routerProps}/>}/> 
+            <Route path="/">
+              <Redirect to="/skills" />
+            </Route>
           </Switch>
      </Fragment>
     );
