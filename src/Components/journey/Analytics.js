@@ -28,22 +28,22 @@ const trackTime = (props) => {
     let focused = [] 
     let labels = []
 
-    timeFormat(props)
-
+    const durationFormat =  findLongestTime(props) 
+  
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
         distraction = moment.duration(track.distraction, 'hours')
         
       
         console.log(distraction.format("h [hrs]"))
-        distractions = [...distractions,  distraction.format("h, m ")]
+        distractions = [...distractions,  distraction]
         
         
         focus = moment.duration(track.time, 'hours')
        
        
-        console.log(focus.format("h [hrs]"))
-        focused = [...focused, focus.format("h,  m ")]
+        console.log(focus)
+        focused = [...focused, focus]
     })
     
     return {
@@ -53,7 +53,8 @@ const trackTime = (props) => {
            }
 }
 
-const timeFormat = (props) => { 
+
+const findLongestTime = (props) =>  {
     let highestTime = 0
 
     props.tracks.map(track => { 
@@ -61,13 +62,29 @@ const timeFormat = (props) => {
             highestTime = track.time
         }   
     })
+
+   const duration =  durationIdentifier(highestTime)
+   
+   return duration
+
+}
+
+const durationIdentifier = (highestTime) => { 
     
     highestTime = moment.duration(highestTime, 'hours')
-    highestTime.format("h [hrs], m [min], s [sec]")
+    const durationFormat = highestTime.format("h [hrs], m [min], s [sec]")
+    
+    return durationFormat.split(/,| /)[1] === "hrs"
+       
+    
     
 
-    
 }
+
+
+
+
+
 
 function Analytics(props) {
     const pieChartRef = useRef()
