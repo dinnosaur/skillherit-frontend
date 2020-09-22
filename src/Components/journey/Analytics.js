@@ -1,6 +1,6 @@
-import React, { Component, Fragment, useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Redirect, withRouter } from "react-router-dom";
-import {Chart,timeFormat} from "chart.js";
+import {Chart} from "chart.js";
 import moment from 'moment';
 
 let dataPie = []
@@ -21,34 +21,68 @@ const calculateTotalTime = (props) => {
 
 
 const trackTime = (props) => {
-    let distracted = [] 
+    let distractions = [] 
     let distraction = null
     let focus = null 
    
     let focused = [] 
     let labels = []
 
+    const durationFormat =  findLongestTime(props) 
+  
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
-        // distraction = moment.duration(track.distraction, 'hours')
-       
-        console.log(distraction)
-        distracted = [...distracted,  track.distraction]
+        distraction = moment.duration(track.distraction, 'hours')
         
-        // focus = moment.duration(track.time, 'hours')
       
+        console.log(distraction.format("h [hrs]"))
+        distractions = [...distractions,  distraction]
+        
+        
+        focus = moment.duration(track.time, 'hours')
+       
+       
         console.log(focus)
-        focused = [...focused,track.time ]
+        focused = [...focused, focus]
     })
     
-
-
     return {
             labels: labels, 
-            distracted: distracted,
+            distracted: distractions,
             focused: focused,
            }
 }
+
+
+const findLongestTime = (props) =>  {
+    let highestTime = 0
+
+    props.tracks.map(track => { 
+        if (highestTime < track.time) {
+            highestTime = track.time
+        }   
+    })
+
+   const duration =  durationIdentifier(highestTime)
+   
+   return duration
+
+}
+
+const durationIdentifier = (highestTime) => { 
+    
+    highestTime = moment.duration(highestTime, 'hours')
+    const durationFormat = highestTime.format("h [hrs], m [min], s [sec]")
+    
+    return durationFormat.split(/,| /)[1] === "hrs"
+       
+    
+    
+
+}
+
+
+
 
 
 
@@ -116,17 +150,22 @@ function Analytics(props) {
                         stacked: true
                     }],
                     yAxes: [{
-                        type: 'time',
-                        time: {
-                            parser: 'h.hh',
-                            unit: "hours",
-                        },
-                        displayFormats: {
-                            'seconds': 's',
-                            'minutes': 'm',
-                            'hours': 'h'
+                    //     type: 'time',
+                    //     time: {
+                    //     parser: 'h',
+                    //     unit: "minute",
+                    //     minUnit: "millisecond",
+                    //     unitStepSize: 1,
+                    //     min: '0',
+                    //     max: '10',
 
-                        },
+                    //      displayFormats: {
+                    //         millisecond: 'HH:mm:ss.SSS',
+                    //         second: 'HH:mm:ss',
+                    //         minute: 'HH:mm',
+                    //         hour: 'HH'
+                    //     },
+                    //     },   
                         stacked: true
                     }]
                 }
