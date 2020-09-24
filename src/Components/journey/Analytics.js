@@ -29,24 +29,26 @@ const trackTime = (props) => {
     let labels = []
 
     const durationFormat =  findLongestTime(props) 
+    console.log(durationFormat)
   
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
-        distraction = moment.duration(track.distraction, 'hours')
+        distraction = moment.duration(track.distraction, 'minutes')
+       
+    
+        console.log(distraction.format("h [hrs], m [min], s [sec]"))
+        distractions = [...distractions,  track.distraction * durationFormat.convertor]
         
-      
-        console.log(distraction.format("h [hrs]"))
-        distractions = [...distractions,  distraction]
         
-        
-        focus = moment.duration(track.time, 'hours')
+        focus = moment.duration(track.time, 'minutes')
        
        
         console.log(focus)
-        focused = [...focused, focus]
+        focused = [...focused, track.time * durationFormat.convertor]
     })
     
     return {
+            yLabel: durationFormat.format[0],
             labels: labels, 
             distracted: distractions,
             focused: focused,
@@ -70,19 +72,23 @@ const findLongestTime = (props) =>  {
 }
 
 const durationIdentifier = (highestTime) => { 
-    
+    let convertor = 0
+
     highestTime = moment.duration(highestTime, 'hours')
-    const durationFormat = highestTime.format("h [hrs], m [min], s [sec]")
+    const durationFormat = highestTime.format("h [hrs], m [min], s [sec]").split(/,| /)[1]
     
-    return durationFormat.split(/,| /)[1] === "hrs"
+    if (durationFormat === "min" || durationFormat === "mins") {
+        convertor = 60 
+    } 
+    else if (durationFormat === "sec" || durationFormat === "secs" ) {
+        convertor = 120
+    }
+    else {
+        convertor = 1
+    }
+    return {format: durationFormat, convertor: convertor}
        
-    
-    
-
 }
-
-
-
 
 
 
@@ -150,23 +156,13 @@ function Analytics(props) {
                         stacked: true
                     }],
                     yAxes: [{
-                    //     type: 'time',
-                    //     time: {
-                    //     parser: 'h',
-                    //     unit: "minute",
-                    //     minUnit: "millisecond",
-                    //     unitStepSize: 1,
-                    //     min: '0',
-                    //     max: '10',
-
-                    //      displayFormats: {
-                    //         millisecond: 'HH:mm:ss.SSS',
-                    //         second: 'HH:mm:ss',
-                    //         minute: 'HH:mm',
-                    //         hour: 'HH'
-                    //     },
-                    //     },   
-                        stacked: true
+                        stacked: true,
+                        ticks: {
+                            // Include a dollar sign in the ticks
+                            callback: function(value, index, values) {
+                                return  value + " " + `(${dataBar.yLabel})` ;
+                            }
+                        }
                     }]
                 }
             }

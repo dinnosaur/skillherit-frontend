@@ -35,7 +35,6 @@ return fetch(BASE_URL + "validate", {headers: {AUTHORIZATION: localStorage.token
 }
 
 const postSkill = (skill) => {
-    console.log(localStorage.token)
     const configurationObject = {
         method: "POST",
         headers: {
