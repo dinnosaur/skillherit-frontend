@@ -22,33 +22,19 @@ const calculateTotalTime = (props) => {
 
 const trackTime = (props) => {
     let distractions = [] 
-    let distraction = null
-    let focus = null 
-   
     let focused = [] 
     let labels = []
 
     const durationFormat =  findLongestTime(props) 
-    console.log(durationFormat)
   
     props.tracks.map(track => {
         labels = [...labels,track.skill.title]
-        distraction = moment.duration(track.distraction, 'minutes')
-       
-    
-        console.log(distraction.format("h [hrs], m [min], s [sec]"))
         distractions = [...distractions,  track.distraction * durationFormat.convertor]
-        
-        
-        focus = moment.duration(track.time, 'minutes')
-       
-       
-        console.log(focus)
         focused = [...focused, track.time * durationFormat.convertor]
     })
     
     return {
-            yLabel: durationFormat.format[0],
+            yLabel: durationFormat.format.toUpperCase(),
             labels: labels, 
             distracted: distractions,
             focused: focused,
@@ -97,7 +83,7 @@ function Analytics(props) {
     const barChartRef = useRef()
     dataPie = calculateTotalTime(props)
     const dataBar = trackTime(props)
-    console.log(props)
+
 
 
 
@@ -153,14 +139,22 @@ function Analytics(props) {
             options: {
                 scales: {
                     xAxes: [{
-                        stacked: true
+                        stacked: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Skills',
+                        }
                     }],
                     yAxes: [{
                         stacked: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Time' + `(${dataBar.yLabel})`,
+                        },
                         ticks: {
                             // Include a dollar sign in the ticks
                             callback: function(value, index, values) {
-                                return  value + " " + `(${dataBar.yLabel})` ;
+                                return  value + " " + `(${dataBar.yLabel[0].toLowerCase()})` ;
                             }
                         }
                     }]
