@@ -3,7 +3,6 @@ import React, { Fragment, useReducer } from "react"
 
 function Bio({ user: { username, motto } }) {
 
-
     return (
         <>
             <article class="uk-comment uk-comment-primary uk-margin-top uk-border-pill ">
@@ -23,7 +22,6 @@ function Bio({ user: { username, motto } }) {
             <hr class="uk-divider-icon" />
         </>
     );
-
 
 }
 
