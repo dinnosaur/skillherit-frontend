@@ -21,6 +21,7 @@ function Analytics(props) {
         })
         const percentageDistracted = ((totalDistracted / (totalDistracted + totalFocused)) * 100).toFixed(2)
         const percentageFocused = ((totalFocused / (totalDistracted + totalFocused)) * 100).toFixed(2)
+        
         return [percentageDistracted, percentageFocused]
     }
 
@@ -33,13 +34,14 @@ function Analytics(props) {
         const durationFormat =  findLongestTime(props) 
     
         props.tracks.map(track => {
+            console.log(track)
             labels = [...labels,track.skill.title]
             distractions = [...distractions,  track.distraction * durationFormat.convertor]
             focused = [...focused, track.time * durationFormat.convertor]
         })
         
         return {
-                yLabel: durationFormat.format.toUpperCase(),
+                formatLabel: durationFormat.format.toUpperCase(),
                 labels: labels, 
                 distracted: distractions,
                 focused: focused,
@@ -81,7 +83,6 @@ function Analytics(props) {
         
     }   
 
-    
     dataBar = trackTime(props)
     dataPie = calculateTotalTime(props)
 

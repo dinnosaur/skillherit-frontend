@@ -24,6 +24,15 @@ export default function BarChart({dataBar}) {
                 }],
             },
             options: {
+                    tooltips: {
+                        callbacks: {
+                            label: function(t, d) {
+                                let dstLabel = d.datasets[t.datasetIndex].label
+                                let yLabel = moment.duration(t.yLabel, dataBar.formatLabel[0].toLowerCase());
+                                return dstLabel + ': ' + yLabel.format("h [hrs], m [min], s [sec]") ;
+                             }
+                        }
+                    },
                 scales: {
                     xAxes: [{
                         stacked: true,
@@ -41,7 +50,7 @@ export default function BarChart({dataBar}) {
                         ticks: {
                             // Include a dollar sign in the ticks
                             callback: function(value, index, values) {
-                                return  value + " " + `(${dataBar.yLabel[0].toLowerCase()})` ;
+                                return  value + " " + `(${dataBar.formatLabel[0].toLowerCase()})` ;
                             }
                         }
                     }]
