@@ -40,15 +40,15 @@ function SkillForm(props) {
 
         <Input handleChange={props.handleChange} name={"title"} text={"Title"}  />
         <Input handleChange={props.handleChange} name={"description"} text={"Summary of your journey"} rows="2" placeholder={"Write a Summary"}/>
-        <Input handleChange={props.handleChange} name={"methodology"} text={"Methodologies"} rows="5" placeholder={"Explain your process"}/>
-        <Input handleChange={props.handleChange} name={"achievements"} text={"Achievements"} rows="3" placeholder={"Aything you accomplished after completing this"}/>
+        <Input handleChange={props.handleChange} name={"methodology"} text={"Methodologies"} rows="5" placeholder={"Explain your process, Please go into as much detail as possible "}/>
+        <Input handleChange={props.handleChange} name={"achievements"} text={"Achievements"} rows="3" placeholder={"Aything you accomplished after completing this e.g: Find a Job"}/>
        
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Links</label>
             <div class="uk-form-controls">
                 <input onChange = {props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size ="5" placeholder="Add Links that were helpful" name="0"/>
                 {linkArray}
-                <span><button class="uk-button uk-button-default" onClick = { newInput}> Add Link</button></span>
+                <span><button class="uk-button uk-button-default" onClick = {newInput}> Add Link</button></span>
             </div>  
         </div> 
         

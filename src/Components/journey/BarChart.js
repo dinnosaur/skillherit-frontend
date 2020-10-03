@@ -45,7 +45,7 @@ export default function BarChart({dataBar}) {
                         stacked: true,
                         scaleLabel: {
                             display: true,
-                            labelString: 'Time' + `(${dataBar.yLabel})`,
+                            labelString: 'Time' + `(${dataBar.formatLabel})`,
                         },
                         ticks: {
                             // Include a dollar sign in the ticks

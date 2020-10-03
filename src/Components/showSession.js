@@ -31,7 +31,7 @@ function ShowSession(props) {
                 <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
                     <div class="uk-text-lighter">
                         <h4 class="uk-text-light">Notes:</h4>
-                        {session ? session.notes[0].content : null}
+                       <p class="formatting">{session ? session.notes[0].content : null}</p>
                     </div>
                     <div>
                         <h4 class="uk-text-light">Links:</h4>
