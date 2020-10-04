@@ -11,7 +11,7 @@ import moment from 'moment';
 import  "moment-duration-format"
 
 import "../css/loginStyles.css"
-import "../css/skillShowStyles.css"
+import "../css/textFormatting.css"
 
 import API from "../API";
 
