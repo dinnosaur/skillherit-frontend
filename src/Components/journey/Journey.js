@@ -34,13 +34,14 @@ class Journey extends Component {
                 <Bio user={this.props.user} />
                 <TrackList tracks={this.state.tracks} />
                 {/* <Example tracks={this.state.tracks} /> */}
-                <div id="modal-full" class="uk-modal-full" data-uk-modal data-uk-overflow-auto >
-                    <div class="uk-modal-dialog uk-width-auto uk-margin" >
-                            <button class="uk-modal-close-full uk-close-large" type="button" data-uk-close></button>
-                        <div class = "uk-container">
-                            <Analytics tracks={this.state.tracks} /> 
-                        </div>
-                    </div>
+                <div id="modal-full" class="uk-modal-full" data-uk-modal data-uk-overflow-auto>
+                    <div class="uk-modal-dialog" >
+                            <button class="uk-modal-close-full uk-close-large " type="button" data-uk-close></button>
+                        
+                            <Analytics tracks={this.state.tracks} />
+                        
+                </div>
+                    
              </div>
             </div>
             </>
