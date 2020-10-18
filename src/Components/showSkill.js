@@ -24,7 +24,7 @@ function ShowSkill(props) {
         <Fragment>
             <div className="uk-container uk-padding-remove-left  uk-padding-remove-right uk-width-1-2 uk-margin-large-top ">
                 <h2 class="uk-position-relative uk-heading-divider uk-position-top-center" >{skill.title}</h2>
-                <h4 class="uk-position-relative  uk-position-top-right" >Difficulty: {skill.difficulty}</h4>
+                <h4 class="uk-position-relative  uk-position-top-center" >Difficulty: {skill.difficulty}</h4>
                 <hr class="uk-divider-icon" />
                 <div className="uk-margin-large-top" data-uk-grid>
                     <div>
@@ -45,6 +45,11 @@ function ShowSkill(props) {
                     {createLinks()}
                 </ul>
                 <hr />
+                <div class="uk-child-width-1-1@s" data-uk-grid>
+                    <div>
+                        <div><h4>Achievements:</h4> <p class="uk-text-lighter">{skill.achievements}</p> </div>
+                    </div>
+                </div>
                 <div class="uk-child-width-1-1@s" data-uk-grid>
                     <div>
                         <div><h4>Advice:</h4> <p class="uk-text-lighter">{skill.advice}</p> </div>
