@@ -53,11 +53,6 @@ class App extends Component {
       })
   }
 
-  
-  // navigateTo = (pageName) => {
-  //   this.setState({ page: pageName })
-  // }
-
    render = ()  => {
   return (
     <>

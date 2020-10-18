@@ -28,6 +28,8 @@ export default function PieChart(props) {
                 ]
             },
             options: {
+                responsive: true, 
+                maintainAspectRatio: true,
                 tooltips: {
                     callbacks: {
                         label: function (tooltipItem, data) {
@@ -45,7 +47,7 @@ export default function PieChart(props) {
 
     return(
         <>
-        <canvas id="myPie" width="400" ref={pieChartRef} />
+        <canvas id="myPie" width="600" ref={pieChartRef} />
         </>
     )
 

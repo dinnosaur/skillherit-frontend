@@ -62,7 +62,7 @@ export default function BarChart({dataBar}) {
 
     return(
         <>
-            <canvas id="myBar" width="400" ref={barChartRef} />
+            <canvas id="myBar" width="600" ref={barChartRef} />
         </>
     )
 

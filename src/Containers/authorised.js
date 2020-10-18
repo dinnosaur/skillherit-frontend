@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react"
 import { Route ,Switch, Redirect} from 'react-router-dom';
+
 import SkillsContainer from "../Components/skillscontainer/SkillsContainer";
 import SkillFormContainer from "../Components/skillsformcontainer/SkillFormContainer";
 import ShowSkill from "../Components/showSkill";
@@ -7,11 +8,13 @@ import TrackContainer from "../Components/TrackContainer/TrackContainer"
 import Navbar from "../Components/navbar"
 import Journey from "../Components/journey/Journey";
 import ShowSession from "../Components/showSession";
+
 import moment from 'moment';
 import  "moment-duration-format"
 
 import "../css/loginStyles.css"
 import "../css/textFormatting.css"
+import "../css/chartStyles.css"
 
 import API from "../API";
 
@@ -20,7 +23,8 @@ import API from "../API";
 class Authorised extends Component {
   state = {
     track:false,
-    duration:0
+    duration:0,
+    statistics: false
   }
   
   addToTrack = (skill) => {
@@ -64,25 +68,29 @@ class Authorised extends Component {
     })
   }
 
-  
-    render = () => {
+  showStatistics = (state) => {
+    this.setState({
+      statistics: state
+    })
+  }
+
+  render = () => {
     return (
       <Fragment>
-         <Navbar  logout = {this.props.logout}/>
-          <Switch> 
-            <Route exact path="/skills" render={() => <SkillsContainer user={this.props.user}/>} />
-            <Route exact path="/new" render= {(routerProps) => <SkillFormContainer {...routerProps}/>}/>
-            <Route exact path="/skills/:id" render= {(routerProps) => <ShowSkill {...routerProps} track={this.state.track} addToTrack={this.addToTrack} user ={this.props.user}/>}/>
-            <Route exact path="/track" render={() => <TrackContainer duration={this.state.duration} getTrack={this.getTrack} activeTrack={this.activeTrack} track={this.state.track}/>}/>
-            <Route exact path="/journey" render={(routerProps) => <Journey {...routerProps} user={this.props.user}/> }/>
-            <Route exact path="/sessions/:id" render={(routerProps) => <ShowSession {...routerProps}/>}/> 
-            <Route path="/">
-              <Redirect to="/skills" />
-            </Route>
-          </Switch>
-     </Fragment>
-    );
-  
+          <Navbar statistics={this.state.statistics} logout={this.props.logout}/>
+            <Switch> 
+              <Route exact path="/skills" render={() => <SkillsContainer user={this.props.user}/>} />
+              <Route exact path="/new" render={(routerProps) => <SkillFormContainer {...routerProps}/>}/>
+              <Route exact path="/skills/:id" render= {(routerProps) => <ShowSkill {...routerProps} track={this.state.track} addToTrack={this.addToTrack} user ={this.props.user}/>}/>
+              <Route exact path="/track" render={() => <TrackContainer duration={this.state.duration} getTrack={this.getTrack} activeTrack={this.activeTrack} track={this.state.track}/>}/>
+              <Route exact path="/journey" render={(routerProps) => <Journey {...routerProps} showStatistics={this.showStatistics} user={this.props.user}/> }/>
+              <Route exact path="/sessions/:id" render={(routerProps) => <ShowSession {...routerProps}/>}/> 
+              <Route path="/">
+                <Redirect to="/skills" />
+              </Route>
+            </Switch>
+      </Fragment>
+      );
     }
   }
 

@@ -61,7 +61,6 @@ function Analytics(props) {
         const duration =  durationIdentifier(highestTime)
     
         return duration
-
     }
 
     const durationIdentifier = (highestTime) => { 
@@ -79,8 +78,7 @@ function Analytics(props) {
         else {
             convertor = 1
         }
-        return {format: durationFormat, convertor: convertor}
-        
+        return {format: durationFormat, convertor: convertor}     
     }   
 
     dataBar = trackTime(props)
@@ -91,18 +89,15 @@ function Analytics(props) {
         return (
             <>
                 {props.tracks ?
-                    <>
-                        <br />
-                        <br />
+                    <div class= "chart-container" >
                         <PieChart dataPie={dataPie} />
                         <BarChart dataBar={dataBar} />
-                    </>
+                    </div>
                     :
                     null
                 }
             </>
-        )
-    
+        )    
 }
 
 export default Analytics
