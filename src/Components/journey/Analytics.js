@@ -89,9 +89,13 @@ function Analytics(props) {
         return (
             <>
                 {props.tracks ?
-                    <div class= "chart-container" >
+                    <div class= "chart-container uk-grid-small uk-child-width-expand@s uk-text-center" data-uk-grid >
+                        <div>
                         <PieChart dataPie={dataPie} />
+                        </div>
+                        <div>
                         <BarChart dataBar={dataBar} />
+                        </div>
                     </div>
                     :
                     null
