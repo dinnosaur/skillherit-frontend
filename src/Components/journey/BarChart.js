@@ -24,6 +24,8 @@ export default function BarChart({dataBar}) {
                 }],
             },
             options: {
+                responsive: true, 
+                maintainAspectRatio: true,
                     tooltips: {
                         callbacks: {
                             label: function(t, d) {
