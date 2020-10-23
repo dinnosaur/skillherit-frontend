@@ -15,11 +15,11 @@ export default function BarChart({dataBar}) {
             data: {labels: dataBar.labels,
                 datasets: [{
                     label: 'Focused',
-                    backgroundColor: "#5f255f",
+                    backgroundColor: "#4b77a9",
                     data: dataBar.focused,
                 }, {
                     label: 'Distracted',
-                    backgroundColor: "#4b77a9",
+                    backgroundColor: "#5f255f",
                     data: dataBar.distracted,
                 }],
             },
