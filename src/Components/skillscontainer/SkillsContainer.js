@@ -52,7 +52,6 @@ class SkillsContainer extends Component {
 
   render = () => {
     return (
-
       <div class="uk-container uk-container-expand">
         <SkillFilter active={this.state.active} showAll={this.showAll} handleLength={this.handleLength} handleTopic={this.handleTopic} />
         <SkillList skills={this.state.filterSkills} />
