@@ -82,6 +82,7 @@ function Session(props) {
         <>
             <div class="uk-grid-small" data-uk-grid>
                 <h4 class="uk-margin-right uk-background-muted uk-border-rounded uk-text-light" uk-leader>Session Time:{hours} Hours {minutes} Minutes {seconds} Seconds</h4>
+                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-text-light" uk-leader>See Skill</button>
             </div>
 
             <hr class="uk-divider-icon" />
@@ -107,9 +108,9 @@ function Session(props) {
             </form>
 
             {pauseState === false ?
-                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-default uk-width-1-1 uk-background-muted"> Distracted!</button>
+                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-danger uk-width-1-1 ">Distracted!</button>
                 :
-                <button onClick={() => distractionTimer("end")} class="uk-button uk-button-default uk-width-1-1 uk-background-muted"> Resume!</button>
+                <button onClick={() => distractionTimer("end")} class="uk-button uk-button-primary uk-width-1-1 uk-background-muted"> Resume!</button>
             }
         </>
     );

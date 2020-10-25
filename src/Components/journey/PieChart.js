@@ -21,8 +21,8 @@ export default function PieChart(props) {
                         label: "Time",
                         data: props.dataPie,
                         backgroundColor: [
-                            "#4b77a9",
-                            "#5f255f"
+                            "#5f255f",
+                            "#4b77a9"
                         ]
                     }
                 ]
@@ -39,7 +39,7 @@ export default function PieChart(props) {
                 },
                 title: {
                     display: true,
-                    text: 'Breakdown of your learning jouney'
+                    text: 'Total Percentage Breakdown'
                 }
             }
         })

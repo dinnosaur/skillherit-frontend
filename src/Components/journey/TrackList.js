@@ -9,7 +9,6 @@ function TrackList(props) {
         <>
           <li key={track.id} class="uk-closed ">
             <a class="uk-accordion-title uk-text-lighter" href="#">{track.skill.title}</a>
-
             <div class="uk-accordion-content">
               <p></p>
               {renderSessions(track)}

@@ -1,10 +1,13 @@
-.chart-container {
-    position: relative;
-    margin: auto;
+.chart-pie {
+    height: 50vh;
+    width: 40vw;
+  }
+
+  .chart-bar {
     height: 60vh;
     width: 60vw;
   }
 
   .uk-modal-dialog {
-      height:130%
+      height:100%
   }
