@@ -1,4 +1,4 @@
-import React, { Component, Fragment, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 import API from "../API.js"
@@ -8,9 +8,18 @@ function ShowSkill(props) {
     const [skill, setSkill] = useState(false)
 
     useEffect(() => {
-        API.fetchSkill(props.match.params.id)
-            .then(resp => resp.json())
-            .then(data => setSkill(data))
+        if (typeof (props.skillId) === false) {
+            console.log(props.match.params.id)
+            API.fetchSkill(props.match.params.id)
+                .then(resp => resp.json())
+                .then(data => setSkill(data))
+        }
+        else {
+            console.log(props.skillId.toString())
+            API.fetchSkill(props.skillId.toString())
+                .then(resp => resp.json())
+                .then(data => setSkill(data))
+        }
     }, [])
 
     const createLinks = () => {
@@ -21,10 +30,11 @@ function ShowSkill(props) {
     }
 
     return (
-        <Fragment>
-            <div className="uk-container uk-padding-remove-left  uk-padding-remove-right uk-width-1-2 uk-margin-large-top ">
+        <>
+
+            <div className="uk-container uk-padding-remove-left  uk-padding-remove-right uk-width-1-2 uk-margin-large-top">
                 <h2 class="uk-position-relative uk-heading-divider uk-position-top-center" >{skill.title}</h2>
-                <h4 class="uk-position-relative  uk-position-top-center" >Difficulty: {skill.difficulty}</h4>
+                <h4 class="uk-position-relative  uk-position-top-center"> Difficulty:{skill.difficulty} </h4>
                 <hr class="uk-divider-icon" />
                 <div className="uk-margin-large-top" data-uk-grid>
                     <div>
@@ -57,17 +67,27 @@ function ShowSkill(props) {
                 </div>
                 <br />
 
-                <button class="uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/skills`)}>Back</button>
-                {!props.track ?
-                    <>
-                        <br />
-                        <br />
-                        <button class="uk-position-relative uk-position-center uk-button uk-button-default " onClick={() => props.addToTrack(skill.id)}>  Add to track</button>
-                    </>
+                {
+                    !props.skillId ?
+                        <>
+                            <button class="uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/skills`)}>Back</button>
+                            {
+                                !props.track ?
+                                    <>
+                                        <br />
+                                        <br />
+                                        <button class="uk-position-relative uk-position-center uk-button uk-button-default" onClick={() => props.addToTrack(skill.id)}> Add to track</button>
+                                    </>
+                                :
+                                null
+                            }
+                        </> 
                     :
-                    null}
+                    null
+               }
+
             </div>
-        </Fragment>
+        </>
     );
 
 

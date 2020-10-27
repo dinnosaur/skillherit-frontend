@@ -105,7 +105,7 @@ class TrackContainer extends Component {
                 {
                     track ?
                         <>
-                            <div className="uk-margin-large-top uk-position-top-center uk-padding">
+                            <div className="uk-margin-large-top uk-position-top-center uk-padding uk-padding-remove-bottom ">
                                 <h3 class="uk-heading-divider uk-text-light"> Current Track: {track.skill.title}</h3>
                             </div>
                             {
@@ -131,7 +131,7 @@ class TrackContainer extends Component {
                             }
                         </>
                         :
-                            <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>
+                        <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>
                 }
             </div>
 
