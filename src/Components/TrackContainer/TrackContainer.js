@@ -118,10 +118,10 @@ class TrackContainer extends Component {
                                         <br></br>
                                         <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
                                             <div>
-                                                <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick={() => this.sessionStart("start", 0)}>Start Learning</button>
+                                                <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-border-rounded uk-button-default uk-background-muted" onClick={() => this.sessionStart("start", 0)}>Start Learning</button>
                                             </div>
                                             <div>
-                                                <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-button-default uk-background-muted" onClick={this.trackCompleted}>Finish Track</button>
+                                                <button class="uk-position-relative uk-position-center uk-margin-large uk-button uk-border-rounded uk-button-default uk-background-muted" onClick={this.trackCompleted}>Finish Track</button>
                                             </div>
                                         </div>
                                     </>

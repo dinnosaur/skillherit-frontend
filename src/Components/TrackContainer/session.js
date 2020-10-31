@@ -111,17 +111,17 @@ function Session(props) {
                         <div class="uk-form-controls">
                             <input onChange={props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size="5" placeholder="Add links you find usefull " name="0" />
                             {linkArray}
-                            <span><button class="uk-button uk-button-default uk-background-muted" onClick={newLinkInput}> Add Link</button></span>
+                            <span><button class="uk-button uk-button-default uk-background-muted uk-border-rounded " onClick={newLinkInput}> Add Link</button></span>
                         </div>
                     </div>
                 </div>
-                <button class="uk-button uk-button-default uk-width-1-1 uk-background-muted" type="submit">Stop session</button>
+                <button class="uk-button uk-button-default uk-width-1-2 uk-background-muted" type="submit">Stop session</button>
             </form>
 
             {pauseState === false ?
-                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-danger uk-width-1-1 ">Distracted!</button>
+                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-danger uk-width-1-2 ">Distracted!</button>
                 :
-                <button onClick={() => distractionTimer("end")} class="uk-button uk-button-primary uk-width-1-1 uk-background-muted"> Resume!</button>
+                <button onClick={() => distractionTimer("end")} class="uk-button uk-button-primary uk-width-1-2 uk-background-muted uk-border-rounded"> Resume!</button>
             }
         </>
     );
