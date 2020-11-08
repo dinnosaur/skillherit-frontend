@@ -1,6 +1,10 @@
 import React, { Fragment, useState, useEffect, useRef } from "react"
 import moment from 'moment';
+
 import ModalSkill from './modalSkill'
+
+
+
 
 function Session(props) {
     const [linkArray, setLinkArray] = useState([])
@@ -90,10 +94,11 @@ function Session(props) {
     return (
         <>
             <ModalSkill track={props.track}/>
+
             <div class="uk-grid-column-large uk-child-width-1-2" data-uk-grid>
                 <div><h4 class="uk-margin-right uk-background-muted uk-border-rounded uk-text-light" >Session Time:{hours} Hours {minutes} Minutes {seconds} Seconds</h4></div>
                 {/* <button onClick={() => distractionTimer("start")} class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-text-light" uk-leader>See Skill</button> */}  
-                <div><button class="uk-button uk-button-default uk-width-1-4 uk-border-rounded" data-uk-toggle="target: #modal-full1" >See Skill !</button> </div>   
+                <div><button class="uk-button uk-button-default uk-width-1-3 uk-border-rounded" data-uk-toggle="target: #modal-full1" >See Skill !</button> </div>   
             </div>
 
             <hr class="uk-divider-icon" />
@@ -115,14 +120,16 @@ function Session(props) {
                         </div>
                     </div>
                 </div>
-                <button class="uk-button uk-button-default uk-width-1-2 uk-background-muted" type="submit">Stop session</button>
+                <button id="stop" class="uk-button uk-button-default uk-background-muted uk-border-rounded " type="submit" >Stop session</button>
             </form>
 
+           
             {pauseState === false ?
-                <button onClick={() => distractionTimer("start")} class="uk-button uk-button-danger uk-width-1-2 ">Distracted!</button>
+                <button onClick={() => distractionTimer("start")} class="distraction uk-button uk-button-danger ">Distracted!</button>
                 :
-                <button onClick={() => distractionTimer("end")} class="uk-button uk-button-primary uk-width-1-2 uk-background-muted uk-border-rounded"> Resume!</button>
+                <button onClick={() => distractionTimer("end")} class="distraction uk-button uk-button-primary  uk-background-muted uk-border-rounded"> Resume!</button>
             }
+                
         </>
     );
 

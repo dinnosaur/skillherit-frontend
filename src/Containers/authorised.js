@@ -15,6 +15,7 @@ import  "moment-duration-format"
 import "../css/loginStyles.css"
 import "../css/textFormatting.css"
 import "../css/chartStyles.css"
+import "../css/buttonStyles.css"
 
 import API from "../API";
 
