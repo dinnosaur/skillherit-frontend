@@ -8,14 +8,14 @@ function ShowSkill(props) {
     const [skill, setSkill] = useState(false)
 
     useEffect(() => {
-        if (typeof (props.skillId) === false) {
+        if (props.skillId === undefined) {
             console.log(props.match.params.id)
             API.fetchSkill(props.match.params.id)
                 .then(resp => resp.json())
                 .then(data => setSkill(data))
         }
         else {
-            console.log(props.skillId.toString())
+            
             API.fetchSkill(props.skillId.toString())
                 .then(resp => resp.json())
                 .then(data => setSkill(data))
