@@ -93,6 +93,7 @@ function Analytics(props) {
                         <div class="uk-position-center-left chart-pie">
                         <PieChart dataPie={dataPie} />
                         </div>
+                        
                         <div class="uk-position-center-right chart-bar">
                         <BarChart dataBar={dataBar} />
                         </div>
