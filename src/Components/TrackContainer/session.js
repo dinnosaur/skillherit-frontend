@@ -105,7 +105,7 @@ function Session(props) {
 
             <form onSubmit={() => props.sessionStop("end", distractionRef.current)} class="uk-form  uk-margin-large uk-position-large uk-width-1-1">
                 <div class="uk-grid-divider uk-child-width-expand@s" data-uk-grid>
-                    <div class="uk-margin ">
+                    <div class="uk-margin">
                         <label class="uk-form-label" htmlFor="form-horizontal-text">Notepad</label>
                         <div class="uk-form-controls">
                             <textarea onChange={props.handleChange} name="content" class="uk-textarea" rows="5" placeholder="...."></textarea>
@@ -116,7 +116,7 @@ function Session(props) {
                         <div class="uk-form-controls">
                             <input onChange={props.handleLinks} class="login uk-input" id="form-horizontal-text" type="url" size="5" placeholder="Add links you find usefull " name="0" />
                             {linkArray}
-                            <span><button class="uk-button uk-button-default uk-background-muted uk-border-rounded " onClick={newLinkInput}> Add Link</button></span>
+                            <span><button class="uk-button uk-button-default uk-background-muted uk-border-rounded" onClick={newLinkInput}> Add Link</button></span>
                         </div>
                     </div>
                 </div>
