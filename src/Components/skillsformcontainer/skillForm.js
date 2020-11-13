@@ -86,7 +86,7 @@ function SkillForm(props) {
         <div class="uk-margin ">
             <label class="uk-form-label" for="form-horizontal-text">Advice</label>
             <div class="uk-form-controls">
-                <input onChange ={props.handleChange} name="advice"  class="login uk-input" id="form-horizontal-text" type="text" placeholder="..."/>
+                <textarea onChange ={props.handleChange} name="advice"  rows="3"  class="login uk-input" id="form-horizontal-text" type="text" placeholder="..."/>
             </div>
         </div>
 

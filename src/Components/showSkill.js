@@ -57,12 +57,12 @@ function ShowSkill(props) {
                 <hr />
                 <div class="uk-child-width-1-1@s" data-uk-grid>
                     <div>
-                        <div><h4>Achievements:</h4> <p class="uk-text-lighter">{skill.achievements}</p> </div>
+                        <h4>Achievements:</h4> <p class="formatting uk-text-lighter">{skill.achievements}</p> 
                     </div>
                 </div>
                 <div class="uk-child-width-1-1@s" data-uk-grid>
                     <div>
-                        <div><h4>Advice:</h4> <p class="uk-text-lighter">{skill.advice}</p> </div>
+                        <h4>Advice:</h4> <p class="formatting uk-text-lighter">{skill.advice}</p> 
                     </div>
                 </div>
                 <br />
