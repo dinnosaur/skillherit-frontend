@@ -1,4 +1,5 @@
 const BASE_URL = "https://peaceful-temple-08111.herokuapp.com/"
+//const BASE_URL = "https://localhost:3000/"
 
 //Unauthorized fetches 
 const signUpUser = (user) => {
