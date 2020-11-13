@@ -8,6 +8,7 @@ function ShowSkill(props) {
     const [skill, setSkill] = useState(false)
 
     useEffect(() => {
+        console.log(props.track)
         if (props.skillId === undefined) {
             console.log(props.match.params.id)
             API.fetchSkill(props.match.params.id)
@@ -31,7 +32,7 @@ function ShowSkill(props) {
 
     return (
         <>
-
+            
             <div className="uk-container uk-padding-remove-left  uk-padding-remove-right uk-width-1-2 uk-margin-large-top">
                 <h2 class="uk-position-relative uk-heading-divider uk-position-top-center" >{skill.title}</h2>
                 <h4 class="uk-position-relative  uk-position-top-center"> Difficulty:{skill.difficulty} </h4>

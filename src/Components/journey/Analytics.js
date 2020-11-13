@@ -89,7 +89,7 @@ function Analytics(props) {
         return (
             <>
                 {props.tracks ?
-                    <div class="uk-grid-small uk-grid-divider uk-child-width-1-2" data-uk-grid>
+                    <div class="uk-grid-small uk-grid-divider uk-child-width-1-2@m" data-uk-grid>
                         <div class="uk-position-center-left  chart-pie">
                         <PieChart dataPie={dataPie} />
                         </div>

@@ -34,7 +34,7 @@ function SkillList(props) {
         })
     }
     return (
-        <div class="uk-child-width-1-3 uk-margin-large-left" data-uk-grid>
+        <div class="uk-child-width-1-3@m uk-margin-large-left" data-uk-grid>
             {renderSkills()}
         </div>
     );
