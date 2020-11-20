@@ -8,9 +8,8 @@ function ShowSkill(props) {
     const [skill, setSkill] = useState(false)
 
     useEffect(() => {
-        console.log(props.track)
+       
         if (props.skillId === undefined) {
-            console.log(props.match.params.id)
             API.fetchSkill(props.match.params.id)
                 .then(resp => resp.json())
                 .then(data => setSkill(data))
@@ -25,7 +24,6 @@ function ShowSkill(props) {
 
     const createLinks = () => {
         if (skill !== false) {
-            console.log(skill.links)
             return skill.links.map(link => { return <li key={link.id}><a class="uk-link-muted" href={link.url} rel='noopener noreferrer' target="_blank">{link.url}</a></li> })
         }
     }

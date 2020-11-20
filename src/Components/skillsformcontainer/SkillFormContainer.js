@@ -49,7 +49,6 @@ export default class SkillFormContainer extends Component {
     }
 
     handleSubmit = (e) => {
-        console.log(e)
         e.preventDefault()
         API.postSkill(this.state)
             .then(API.parseJson)

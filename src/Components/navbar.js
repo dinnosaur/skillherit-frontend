@@ -8,7 +8,6 @@ function Navbar(props) {
                 <ul class="uk-navbar-nav">
                     <li class="uk-active"><Link to="/skills">SkillHerit</Link></li>
                     <li class="uk-inactice"><Link to="/track">My Track</Link></li>
-                    {console.log(props)}
                     {props.statistics ? <li class="uk-inactice"><Link  type="button" data-uk-toggle="target: #modal-full">Statistics</Link></li>:
                     null}
                 </ul>

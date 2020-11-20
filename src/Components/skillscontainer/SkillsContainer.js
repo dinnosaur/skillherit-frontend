@@ -26,7 +26,6 @@ class SkillsContainer extends Component {
 
   handleTopic = ({ target: { innerText } }) => {
     const topicSkills = this.state.skills.filter(skill => skill.topics[0].name === innerText)
-    console.log(topicSkills)
     this.setState({
       filterSkills: topicSkills,
       active: innerText

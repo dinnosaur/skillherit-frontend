@@ -29,6 +29,7 @@ class Authorised extends Component {
   }
   
   addToTrack = (skill) => {
+    console.log(skill)
       const data = {id:skill}
       API.createTrack(data)
       .then(API.parseJson)
@@ -45,17 +46,20 @@ class Authorised extends Component {
   getTrack = () => {
     API.fetchTrack()
     .then(API.parseJson)
-    .then(data => 
+    .then(data => {
+      console.log(data)
       this.activeTrack(data)
-    )
+    })
     .catch(err => {
           console.log(err)
     })
 
   }
   activeTrack = (data) => {
+   if(data!==false) { 
+     this.calculateHours(data.time)
+    }
     console.log(data)
-   if(data!==false) { this.calculateHours(data.time)}
     this.setState({
       track:data
     })
@@ -63,7 +67,6 @@ class Authorised extends Component {
 
   calculateHours = (time) => {
     const duration = moment.duration(time, 'hours')
-    console.log(duration)
     this.setState({
       duration: duration.format("h [hrs], m [min], s [sec]")
     })
@@ -91,8 +94,8 @@ class Authorised extends Component {
               </Route>
             </Switch>
       </Fragment>
-      );
-    }
+    );
   }
+}
 
   export default Authorised

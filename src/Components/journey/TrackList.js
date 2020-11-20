@@ -2,7 +2,6 @@ import React, { Fragment } from "react"
 import { Link } from 'react-router-dom'
 
 function TrackList(props) {
-  console.log("hey")
   const renderTracks = () => {
     return props.tracks.map(track => {
       return (

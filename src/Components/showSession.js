@@ -14,7 +14,6 @@ function ShowSession(props) {
 
     const renderLinks = () => {
         if (session !== false) {
-            console.log(session.urls)
             return session.urls.map(url => { return <li key={url.id}><a class="uk-link-muted" href={url.link} rel='noopener noreferrer' target="_blank">{url.link}</a></li> })
         }
     }

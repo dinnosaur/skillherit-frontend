@@ -34,7 +34,6 @@ function Analytics(props) {
         const durationFormat =  findLongestTime(props) 
     
         props.tracks.map(track => {
-            console.log(track)
             labels = [...labels,track.skill.title]
             distractions = [...distractions,  track.distraction * durationFormat.convertor]
             focused = [...focused, track.time * durationFormat.convertor]

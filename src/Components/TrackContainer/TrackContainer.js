@@ -17,7 +17,6 @@ class TrackContainer extends Component {
     }
 
     sessionStart = (state, distractionTime) => {
-        console.log(distractionTime)
         this.timeSetter(state, distractionTime)
         this.setState({
             session: !this.state.session
@@ -55,7 +54,7 @@ class TrackContainer extends Component {
     }
 
     submitSession = (duration, date, distractionDuration) => {
-        console.log(distractionDuration)
+
         const data = {
             session: {
                 track_id: this.props.track.id,
@@ -101,10 +100,11 @@ class TrackContainer extends Component {
     render = () => {
         const { track, duration } = this.props
         return (
-            <div class="uk-container uk-margin uk-padding-large uk-box-shadow-small ">
-                {
+            <div class="uk-container uk-margin uk-padding-large uk-box-shadow-small">
+                { 
                     track ?
                         <>
+                            {console.log(track)}
                             <div className="uk-margin-large-top uk-position-top-center uk-padding uk-padding-remove-bottom ">
                                 <h3 class="uk-heading-divider uk-text-light"> Current Track: {track.skill.title}</h3>
                             </div>
@@ -130,7 +130,7 @@ class TrackContainer extends Component {
                             
                             }
                         </>
-                        :
+                    :
                         <h2 class="uk-position-relative uk-position-center uk-text-light">Browse through skills to start learning </h2>
                 }
             </div>
