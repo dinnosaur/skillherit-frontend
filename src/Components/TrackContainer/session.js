@@ -92,12 +92,12 @@ function Session(props) {
     
 
     return (
-        <>
-            <ModalSkill track={props.track}/>
+        <>  
+            
 
             <div class="uk-grid-column-large uk-child-width-1-2" data-uk-grid>
+                <ModalSkill track={props.track}/>
                 <div><h4 class="uk-margin-right uk-background-muted uk-border-rounded uk-text-light" >Session Time:{hours} Hours {minutes} Minutes {seconds} Seconds</h4></div>
-                {/* <button onClick={() => distractionTimer("start")} class="uk-button uk-button-default uk-background-muted uk-border-rounded uk-text-light" uk-leader>See Skill</button> */}  
                 <div><button class="uk-button uk-button-default uk-width-1-3 uk-border-rounded" data-uk-toggle="target: #modal-full1" >See Skill !</button> </div>   
             </div>
 
@@ -120,7 +120,7 @@ function Session(props) {
                         </div>
                     </div>
                 </div>
-                <button id="stop" class="uk-button uk-button-default uk-background-muted uk-border-rounded " type="submit" >Stop session</button>
+                <button id="stop" class="uk-button uk-button-default uk-background-muted uk-border-rounded" type="submit">Stop session</button>
             </form>
 
            
