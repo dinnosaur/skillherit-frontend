@@ -1,6 +1,6 @@
 
-import React, {Component, Fragment} from 'react'
-import { Route, Redirect, withRouter} from 'react-router-dom';
+import React, { Component, Fragment } from 'react'
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import Unauthorised from "./Containers/unauthorised"
 import Authorised from "./Containers/authorised"
 
@@ -8,58 +8,59 @@ import API from "./API"
 
 class App extends Component {
   state = {
-      user: false,
-      createSkill: false,
-      journey: false,
-      page: "home",
-    }
+    user: false,
+    createSkill: false,
+    journey: false,
+    page: "home",
+  }
 
-   login = (data) => {
-    localStorage.token = data.token 
+  login = (data) => {
+    localStorage.token = data.token
     this.setState({
       user: data
-    },() =>  this.props.history.push(`/skills`))
+    }, () => this.props.history.push(`/skills`))
   }
 
   componentDidMount() {
     if (localStorage.token) {
-     this.validate()
-    }   
-   }
+      this.validate()
+    }
+  }
 
-   logout = () => {
+  logout = () => {
     localStorage.removeItem("token")
     this.setState({
       user: false
     })
-    }
+  }
 
 
   validate = () => {
-    if (localStorage.token != "undefined")
-    {  API.validation()
-     .then(resp => resp.json())
-     .then(data => {this.setState({
-       user:data
-     });
-     localStorage.token = data.token 
-    })
+    if (localStorage.token != "undefined") {
+      API.validation()
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({
+            user: data
+          });
+          localStorage.token = data.token
+        })
     }
   }
 
   createSkill = () => {
-      this.setState({
-        createSkill: !this.state.createSkill
-      })
+    this.setState({
+      createSkill: !this.state.createSkill
+    })
   }
 
-   render = ()  => {
-  return (
-    <>
-    {this.state.user? <Authorised user={this.state.user} logout={this.logout}/>:<Unauthorised login ={this.login}/>}
-    </>
-  );
- }
+  render = () => {
+    return (
+      <>
+        {this.state.user ? <Authorised user={this.state.user} logout={this.logout} /> : <Unauthorised login={this.login} />}
+      </>
+    );
+  }
 
 }
 

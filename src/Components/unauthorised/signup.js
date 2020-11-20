@@ -7,7 +7,7 @@ export default class Signup extends Component {
 
 
     render = () => {
-        const { handlesubmit, handlechange } = this.props
+        const { handlesubmit, handlechange,history} = this.props
         return (
             <form onSubmit={(e) => { e.preventDefault(); handlesubmit() }} class="uk-position-center uk-form-stacked uk-form-medium ">
 
@@ -63,6 +63,7 @@ export default class Signup extends Component {
                     </div>
                 </div>
                 <button type="submit" class="uk-button uk-button-default">Signup</button>
+                <Link to="/"><button  class="uk-button uk-button-default">Login</button></Link>
             </form>
 
         )

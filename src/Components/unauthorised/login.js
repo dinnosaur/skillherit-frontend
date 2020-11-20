@@ -9,7 +9,7 @@ export default class Login extends Component {
         const { handlesubmit, handlechange } = this.props
         return (
             <div class="uk-container uk-position-center ">
-                <form onSubmit={(e) => { e.preventDefault(); handlesubmit() }}>
+                <form onSubmit={(e) => { e.preventDefault(); handlesubmit()}}>
                     <div class="uk-flex uk-flex-center uk-vertical-align-middle">
                         <div class="uk-inline">
                             <span className="uk-form-icon" uk-icon="icon: user"></span>
@@ -22,8 +22,9 @@ export default class Login extends Component {
                             <input name="password" onChange={handlechange} class="login uk-input" type="password" />
                         </div>
                     </div>
+                    <br/>
                     <button onClick={handlesubmit} type="submit" class="uk-button uk-button-default">Login</button>
-                    <span><Link to="/signup"><button class="uk-button uk-button-default">Signup</button></Link> </span>
+                    <Link to="/signup"><button class="uk-button uk-button-default">Signup</button></Link>
                 </form>
             </div>
         )

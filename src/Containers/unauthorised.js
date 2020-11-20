@@ -55,7 +55,7 @@ class Unauthorised extends Component {
             <Fragment>
                 <Switch>
                     <Route exact path="/signup" render={() => <Signup handlechange={this.handleChange} handlesubmit={this.handleSignUp} />} />
-                    <Route eaxct path="/" render={() => <Login signup={this.signup} handlechange={this.handleChange} handlesubmit={this.handleLogin} />} />
+                    <Route exact path="/" render={() => <Login signup={this.signup} handlechange={this.handleChange} handlesubmit={this.handleLogin} />} />
                 </Switch>
             </Fragment>
         );
