@@ -22,10 +22,10 @@ export default class Login extends Component {
                             <input name="password" onChange={handlechange} class="login uk-input" type="password" />
                         </div>
                     </div>
-                    <br/>
-                    <div class="uk-grid-small uk-child-width-1-2" data-uk-grid>
-                    <button onClick={handlesubmit} type="submit" class="uk-button uk-button-default">Login</button>
-                    <Link to="/signup"><button class="uk-button uk-button-default">Signup</button></Link>
+   
+                    <div class="uk-grid-small uk-child-width-1-2 uk-padding-small" data-uk-grid>
+                    <button onClick={handlesubmit} type="submit" class="uk-border-rounded  uk-text-lighter uk-button uk-button-default">Login</button>
+                    <Link to="/signup"><button class="uk-border-rounded uk-text-lighter  uk-button uk-button-default">Signup</button></Link>
                     </div>
                 </form>
             </div>

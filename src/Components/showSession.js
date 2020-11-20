@@ -43,7 +43,7 @@ function ShowSession(props) {
                 <br />
                 <br />
                 <br />
-                <button class="uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/journey`)}>Back</button>
+                <button class="uk-border-rounded uk-text-lighter uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/journey`)}>Back</button>
             </div>
         </>
     );

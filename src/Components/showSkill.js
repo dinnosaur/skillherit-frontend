@@ -69,13 +69,13 @@ function ShowSkill(props) {
                 {
                     !props.skillId ?
                         <>
-                            <button class="uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/skills`)}>Back</button>
+                            <button class="uk-border-rounded uk-text-lighter uk-position-relative uk-position-center uk-button uk-button-default uk-background-muted " onClick={() => props.history.push(`/skills`)}>Back</button>
                             {
                                 !props.track ?
                                     <>
                                         <br />
                                         <br />
-                                        <button class="uk-position-relative uk-position-center uk-button uk-button-default" onClick={() => props.addToTrack(skill.id)}> Add to track</button>
+                                        <button class="uk-border-rounded uk-text-lighter uk-position-relative uk-position-center uk-button uk-button-default" onClick={() => props.addToTrack(skill.id)}> Add to track</button>
                                     </>
                                 :
                                 null

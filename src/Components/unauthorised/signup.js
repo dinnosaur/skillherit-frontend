@@ -62,9 +62,9 @@ export default class Signup extends Component {
                             type="" />
                     </div>
                 </div>
-                <div class="uk-grid-small uk-child-width-1-2" data-uk-grid>
-                <button type="submit" class="uk-button uk-button-default">Signup</button>
-                <Link to="/"><button  class="uk-button uk-button-default">Login</button></Link>
+                <div class="uk-grid-small uk-child-width-1-2 uk-padding-small" data-uk-grid>
+                <button type="submit" class="uk-border-rounded uk-text-lighter uk-button uk-button-default">Signup</button>
+                <Link to="/"><button  class="uk-border-rounded uk-text-lighter uk-button uk-button-default">Login</button></Link>
                 </div>
             </form>
 
