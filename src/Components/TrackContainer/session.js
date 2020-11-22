@@ -92,9 +92,7 @@ function Session(props) {
     
 
     return (
-        <>  
-            
-
+        <>
             <div class="uk-grid-column-large uk-child-width-1-2" data-uk-grid>
                 <ModalSkill track={props.track}/>
                 <div><h4 class="uk-margin-right uk-background-muted uk-border-rounded uk-text-light" >Session Time:{hours} Hours {minutes} Minutes {seconds} Seconds</h4></div>
