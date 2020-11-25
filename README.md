@@ -15,6 +15,6 @@ Still in the early stages with more room for imporvements and additional feature
 
 
 ### Program In action 
-![Home page] (https://photos.app.goo.gl/xJ67XvK6QXLwvr398)
+![Home page] (https://9to5google.com/wp-content/uploads/sites/4/2019/03/google-images-material-theme.jpg?quality=82&strip=all&w=1000)
 
 
