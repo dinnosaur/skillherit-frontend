@@ -40,8 +40,9 @@ Still in the early stages with more room for imporvements and additional feature
 &nbsp;
 
 
-[Link To The Backend] (https://github.com/dinnosaur/skillherit-backend)
-[Link To website] (https://unruffled-edison-e21ace.netlify.app/)
+[Link To The Backend](https://github.com/dinnosaur/skillherit-backend)
+
+[Link To website](https://unruffled-edison-e21ace.netlify.app/)
 
 
 
