@@ -26,6 +26,7 @@ function TrackList(props) {
   return (
     <>
       <ul data-uk-accordion="multiple: true">
+        {console.log(props)}
         {renderTracks()}
       </ul>
     </>

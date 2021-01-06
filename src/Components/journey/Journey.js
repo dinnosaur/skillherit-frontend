@@ -11,20 +11,23 @@ class Journey extends Component {
     state = {
         tracks: []
     }
-    componentDidMount() {
-        this.props.showStatistics(true)
 
+    fetchdata = () => {
         API.fetchCompletedTracks()
             .then(API.parseJson)
+            // .then(data => console.log(data))
             .then(data => this.setState({ tracks: data }))
             .catch(error => console.log(error))
     }
-
-
+    
+    componentDidMount() {   
+        this.props.showStatistics(true)
+        this.fetchdata()
+    }
+ 
     componentWillUnmount() {
         this.props.showStatistics(false)
     }
-
 
 
     render = () => {

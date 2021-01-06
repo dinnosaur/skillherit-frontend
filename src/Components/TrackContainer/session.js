@@ -33,9 +33,6 @@ function Session(props) {
     distractionRef.current = distraction
     pauseEndRef.current = pauseEnd
 
-    const [showSkill, setShowSkill] = useState(false)
-
-
     const newLinkInput = (e) => {
         e.preventDefault()
         setLinkNo(linkNo + 1)
@@ -88,6 +85,10 @@ function Session(props) {
                 break;
         }
     }
+
+    console.log(pauseStart, pauseStartRef)
+    console.log(start, StartRef)
+
 
     
 
