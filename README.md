@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# SkillHerit
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Introduction
+SkillHerit is a web app that allows users to view and share experiences learning a skill mainly on the web and share it with other Users. 
+The front-end is created using React and the back-end is created using Ruby on Rails. Users are able to sign-up , sign-in and view skills, 
+create skills and add skills to their track. Users can create learning sessions once a track has been created where they will be able to time, 
+add notes and links for each learning session. MomentJS and ChartJs have been used to accurately time sessions and visualize the user's learning journey.
+The back-end stores most of the information, API calls are established on the front-end to obtain required data to display.
+Still in the early stages with more room for imporvements and additional features.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Program in action 
+![Home Page](https://github.com/dinnosaur/skillherit-frontend/blob/master/images/Screenshot%202020-11-25%20at%2016.34.34.png?raw=true)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+>This is the home page that the user is presented with when the user has logged in. It is all the Skills that users have posted,users can also filter by topic or length of completion.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+&nbsp;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Home Page](https://github.com/dinnosaur/skillherit-frontend/blob/master/images/Screenshot%202020-11-25%20at%2016.36.00.png?raw=true)
 
-### `yarn eject`
+>This journey page allows the user to access logs of learning sessions for tracks that have been completed. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+&nbsp;
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Home Page](https://github.com/dinnosaur/skillherit-frontend/blob/master/images/Screenshot%202020-11-25%20at%2016.37.01.png?raw=true)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+>This is the learning session page that allows users to add notes and links. MomentJs library is used to time the beginning and ending of a session, a user is also able to time they have been distracted by clicking on the distracted button this will in turn count the amount of time the user has been distracted for.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+&nbsp;
 
-## Learn More
+![Home Page](https://github.com/dinnosaur/skillherit-frontend/blob/master/images/Screenshot%202020-11-25%20at%2016.36.29.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+>This is the Statistic page, that shows a visualized breakdown using the ChartJs library of all the skills that a user has learnt with the time spent learning and the time the user has been distracted for. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+&nbsp;
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+[Link To The Backend](https://github.com/dinnosaur/skillherit-backend)
 
-### Analyzing the Bundle Size
+[Link To website](https://unruffled-edison-e21ace.netlify.app/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
+
+
