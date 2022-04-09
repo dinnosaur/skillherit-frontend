@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "chart.js": "^2.9.4",
     "chartjs-plugin-zoom": "^0.7.7",
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "moment-duration-format": "^2.3.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
